@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Terms of Service – Flow Sort: Color Tube Puzzle | Hexlume Games</title>
   <style>
     :root {
@@ -16,7 +17,15 @@
       --text2: #9999cc;
       --warn: #ffd700;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -24,12 +33,14 @@
       line-height: 1.75;
       padding: 0 0 60px;
     }
+
     header {
       background: linear-gradient(135deg, var(--bg2) 0%, var(--panel) 100%);
       border-bottom: 2px solid var(--accent2);
       padding: 36px 24px 28px;
       text-align: center;
     }
+
     header .brand {
       font-size: 13px;
       text-transform: uppercase;
@@ -37,6 +48,7 @@
       color: var(--accent);
       margin-bottom: 10px;
     }
+
     header h1 {
       font-size: clamp(22px, 5vw, 32px);
       font-weight: 800;
@@ -46,15 +58,22 @@
       background-clip: text;
       margin-bottom: 8px;
     }
-    header .meta { font-size: 13px; color: var(--text2); }
+
+    header .meta {
+      font-size: 13px;
+      color: var(--text2);
+    }
+
     .lang-switch {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       padding: 18px 24px;
       background: var(--bg2);
       border-bottom: 1px solid var(--border);
     }
+
     .lang-switch a {
       color: var(--text2);
       text-decoration: none;
@@ -64,17 +83,30 @@
       border-radius: 20px;
       border: 1px solid var(--border);
       transition: all .2s;
+      cursor: pointer;
     }
-    .lang-switch a:hover, .lang-switch a.active {
+
+    .lang-switch a:hover,
+    .lang-switch a.active {
       background: var(--accent2);
       border-color: var(--accent2);
       color: #fff;
     }
+
     .container {
       max-width: 780px;
       margin: 0 auto;
       padding: 0 20px;
     }
+
+    .lang-content {
+      display: none;
+    }
+
+    .lang-content.active {
+      display: block;
+    }
+
     .section {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -82,6 +114,7 @@
       padding: 28px 28px 24px;
       margin-top: 24px;
     }
+
     .section h2 {
       font-size: 17px;
       font-weight: 700;
@@ -93,11 +126,31 @@
       align-items: center;
       gap: 10px;
     }
-    .section h2 .icon { font-size: 20px; }
-    .section p, .section li { font-size: 14.5px; color: var(--text2); margin-bottom: 10px; }
-    .section ul, .section ol { padding-left: 22px; }
-    .section li { margin-bottom: 8px; }
-    .section a { color: var(--accent); }
+
+    .section h2 .icon {
+      font-size: 20px;
+    }
+
+    .section p,
+    .section li {
+      font-size: 14.5px;
+      color: var(--text2);
+      margin-bottom: 10px;
+    }
+
+    .section ul,
+    .section ol {
+      padding-left: 22px;
+    }
+
+    .section li {
+      margin-bottom: 8px;
+    }
+
+    .section a {
+      color: var(--accent);
+    }
+
     .highlight {
       background: rgba(200, 92, 252, 0.10);
       border-left: 3px solid var(--accent2);
@@ -107,6 +160,7 @@
       font-size: 14px;
       color: var(--text);
     }
+
     .warn {
       background: rgba(255, 215, 0, 0.08);
       border-left: 3px solid var(--warn);
@@ -116,11 +170,13 @@
       font-size: 14px;
       color: var(--text);
     }
+
     .divider {
       border: none;
       border-top: 2px dashed var(--border);
       margin: 48px 0 12px;
     }
+
     .section-label {
       text-align: center;
       font-size: 12px;
@@ -129,208 +185,1024 @@
       color: var(--accent);
       margin-bottom: 4px;
     }
-    #en .section h2 { color: var(--accent); }
+
+    [dir="rtl"] .section h2 {
+      flex-direction: row-reverse;
+    }
+
+    [dir="rtl"] .highlight,
+    [dir="rtl"] .warn {
+      border-left: none;
+      border-right: 3px solid;
+    }
+
+    [dir="rtl"] .highlight {
+      border-right-color: var(--accent2);
+    }
+
+    [dir="rtl"] .warn {
+      border-right-color: var(--warn);
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="brand">Hexlume Games</div>
-  <h1>Terms of Service</h1>
-  <div class="meta">Flow Sort: Color Tube Puzzle &nbsp;|&nbsp; com.hexlumegames.flowsort</div>
-</header>
+  <header>
+    <div class="brand">Hexlume Games</div>
+    <h1>Terms of Service</h1>
+    <div class="meta">Flow Sort: Color Tube Puzzle &nbsp;|&nbsp; com.hexlumegames.flowsort</div>
+  </header>
 
-<div class="lang-switch">
-  <a href="#tr" class="active">🇹🇷 Türkçe</a>
-  <a href="#en">🇬🇧 English</a>
-</div>
+  <div class="lang-switch">
+    <a data-lang="tr">🇹🇷 Türkçe</a>
+    <a data-lang="en">🇬🇧 English</a>
+    <a data-lang="de">🇩🇪 Deutsch</a>
+    <a data-lang="es">🇪🇸 Español</a>
+    <a data-lang="fr">🇫🇷 Français</a>
+    <a data-lang="pt">🇵🇹 Português</a>
+    <a data-lang="ru">🇷🇺 Русский</a>
+    <a data-lang="ja">🇯🇵 日本語</a>
+    <a data-lang="ko">🇰🇷 한국어</a>
+    <a data-lang="ar">🇸🇦 العربية</a>
+  </div>
 
-<!-- =========================================================
-     TÜRKÇE
-     ========================================================= -->
-<div id="tr">
-<div class="container">
+  <!-- Türkçe -->
+  <div id="lang-tr" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Kabul</h2>
+        <p>Bu Hizmet Şartları, <strong>Hexlume Games</strong> tarafından geliştirilen <strong>Flow Sort: Color Tube
+            Puzzle</strong> uygulamasını (uygulama kimliği: <code>com.hexlumegames.flowsort</code>) indirip kullanarak
+          kabul ettiğiniz koşulları belirtmektedir.</p>
+        <p><strong>Son güncelleme:</strong> 26 Mayıs 2026</p>
+        <div class="highlight">
+          Uygulamayı kullanmaya devam etmekle bu şartları okuduğunuzu ve kabul ettiğinizi beyan edersiniz. Şartları
+          kabul etmiyorsanız lütfen uygulamayı kullanmayınız.
+        </div>
+      </div>
 
-  <div class="section">
-    <h2><span class="icon">📄</span> Kabul</h2>
-    <p>Bu Hizmet Şartları, <strong>Hexlume Games</strong> tarafından geliştirilen <strong>Flow Sort: Color Tube Puzzle</strong> uygulamasını (uygulama kimliği: <code>com.hexlumegames.flowsort</code>) indirip kullanarak kabul ettiğiniz koşulları belirtmektedir.</p>
-    <p><strong>Son güncelleme:</strong> 26 Mayıs 2026</p>
-    <div class="highlight">
-      Uygulamayı kullanmaya devam etmekle bu şartları okuduğunuzu ve kabul ettiğinizi beyan edersiniz. Şartları kabul etmiyorsanız lütfen uygulamayı kullanmayınız.
+      <div class="section">
+        <h2><span class="icon">🎮</span> Lisans ve Kullanım Hakkı</h2>
+        <p>Hexlume Games, size bu uygulamayı kişisel, ticari olmayan amaçlarla kullanmak için sınırlı, münhasır olmayan,
+          devredilemez bir lisans vermektedir. Bu lisans kapsamında şunları yapamazsınız:</p>
+        <ul>
+          <li>Uygulamayı kopyalamak, değiştirmek veya türev eserler oluşturmak</li>
+          <li>Uygulamayı tersine mühendislik ile incelemek, decompile etmek veya kaynak koda dönüştürmeye çalışmak</li>
+          <li>Uygulamayı ücretli ya da ücretsiz üçüncü taraflara dağıtmak veya satmak</li>
+          <li>Uygulamayı kiralık veya hizmet olarak sunmak</li>
+          <li>Uygulamadaki telif hakkı, marka veya diğer tescil ifadelerini kaldırmak</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🏆</span> Fikri Mülkiyet</h2>
+        <p>Uygulama ve içindeki tüm materyaller (oyun mekanikleri, grafik tasarım, ses efektleri, müzik, kod, metin ve
+          diğer içerikler) <strong>Hexlume Games</strong>'e aittir veya lisanslıdır. Tüm haklar saklıdır.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" ve "Hexlume Games" adları/logoları tescil edilmiş ya da tescil
+          sürecindeki markalardır ve izinsiz kullanılamaz.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">📣</span> Reklamlar</h2>
+        <p>Uygulama, Google AdMob aracılığıyla reklam içerebilir. Reklamlar banner, geçiş reklamı (interstitial) ve
+          ödüllü reklam formatlarında görünebilir. Bu reklamlar üçüncü taraflarca sağlanmaktadır; Hexlume Games, reklam
+          içeriklerinin doğruluğu veya güvenliği konusunda sorumluluk kabul etmez.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🚫</span> Yasaklı Kullanımlar</h2>
+        <p>Aşağıdaki kullanımlar kesinlikle yasaktır:</p>
+        <ul>
+          <li>Oyun verilerini, puanları veya ilerleme durumunu hileli yollarla değiştirme</li>
+          <li>Uygulamanın normal işleyişini bozacak bot, script veya otomatik araçlar kullanma</li>
+          <li>Uygulamayı yasalara aykırı amaçlarla kullanma</li>
+          <li>Diğer kullanıcıların deneyimini olumsuz etkileyen herhangi bir eylem</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Garanti Reddi</h2>
+        <div class="warn">
+          Uygulama "OLDUĞU GİBİ" sunulmaktadır. Hexlume Games; uygulamanın kesintisiz, hatasız veya belirli bir amaca
+          uygun çalışacağını garanti etmez. Yürürlükteki tüketici koruma mevzuatının zorunlu kıldığı garantiler bu
+          reddin dışındadır.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔐</span> Sorumluluk Sınırlaması</h2>
+        <p>Yürürlükteki yasaların izin verdiği azami ölçüde Hexlume Games; uygulamanın kullanımından kaynaklanan
+          dolaylı, arızi, özel veya sonuç niteliğindeki zararlardan (veri kaybı, gelir kaybı veya işletme kesintisi
+          dahil) sorumlu tutulamaz.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">👶</span> Yaş Sınırı</h2>
+        <p>Uygulama 13 yaşın altındaki bireyler tarafından kullanıma yönelik değildir. 13 ile 18 yaş arasındaki
+          kullanıcıların uygulamayı ebeveyn veya vasi gözetiminde kullanması önerilir.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔄</span> Değişiklikler ve Fesih</h2>
+        <p>Hexlume Games, bu şartları önceden bildirmeksizin güncelleme hakkını saklı tutar. Güncel şartlar daima bu
+          sayfada yayımlanır. Uygulamayı kullanmaya devam etmeniz güncellenen şartları kabul ettiğiniz anlamına gelir.
+        </p>
+        <p>Hexlume Games, herhangi bir nedenle uygulamayı kullandırma lisansınızı kendi takdirine bağlı olarak
+          sonlandırabilir.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Uygulanacak Hukuk</h2>
+        <p>Bu şartlar, Türkiye Cumhuriyeti hukukuna tabidir. Uyuşmazlıklarda Türk mahkemeleri yetkilidir. Uygulamanın
+          Google Play Store üzerinden erişilmesi durumunda Google Play Hizmet Şartları da geçerlidir.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔗</span> Google Play Şartları</h2>
+        <p>Uygulama, Google Play Store üzerinden dağıtılmaktadır. Uygulamayı bu platform üzerinden indirip kullanarak
+          Google'ın Hizmet Şartlarını da kabul etmiş olursunuz:</p>
+        <p><a href="https://play.google.com/intl/tr/about/play-terms/"
+            target="_blank">play.google.com/intl/tr/about/play-terms/</a></p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">📬</span> İletişim</h2>
+        <p><strong>Hexlume Games</strong><br>
+          E-posta: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">🎮</span> Lisans ve Kullanım Hakkı</h2>
-    <p>Hexlume Games, size bu uygulamayı kişisel, ticari olmayan amaçlarla kullanmak için sınırlı, münhasır olmayan, devredilemez bir lisans vermektedir. Bu lisans kapsamında şunları yapamazsınız:</p>
-    <ul>
-      <li>Uygulamayı kopyalamak, değiştirmek veya türev eserler oluşturmak</li>
-      <li>Uygulamayı tersine mühendislik ile incelemek, decompile etmek veya kaynak koda dönüştürmeye çalışmak</li>
-      <li>Uygulamayı ücretli ya da ücretsiz üçüncü taraflara dağıtmak veya satmak</li>
-      <li>Uygulamayı kiralık veya hizmet olarak sunmak</li>
-      <li>Uygulamadaki telif hakkı, marka veya diğer tescil ifadelerini kaldırmak</li>
-    </ul>
-  </div>
+  <!-- English -->
+  <div id="lang-en" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Acceptance</h2>
+        <p>These Terms of Service govern your use of <strong>Flow Sort: Color Tube Puzzle</strong> (app ID:
+          <code>com.hexlumegames.flowsort</code>), developed by <strong>Hexlume Games</strong>.</p>
+        <p><strong>Last updated:</strong> May 26, 2026</p>
+        <div class="highlight">
+          By downloading or using the application, you confirm that you have read and agree to these Terms. If you do
+          not agree, please do not use the application.
+        </div>
+      </div>
 
-  <div class="section">
-    <h2><span class="icon">🏆</span> Fikri Mülkiyet</h2>
-    <p>Uygulama ve içindeki tüm materyaller (oyun mekanikleri, grafik tasarım, ses efektleri, müzik, kod, metin ve diğer içerikler) <strong>Hexlume Games</strong>'e aittir veya lisanslıdır. Tüm haklar saklıdır.</p>
-    <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" ve "Hexlume Games" adları/logoları tescil edilmiş ya da tescil sürecindeki markalardır ve izinsiz kullanılamaz.</p>
-  </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> License &amp; Permitted Use</h2>
+        <p>Hexlume Games grants you a limited, non-exclusive, non-transferable license to use this application for
+          personal, non-commercial purposes. Under this license, you may <strong>not</strong>:</p>
+        <ul>
+          <li>Copy, modify, or create derivative works of the application</li>
+          <li>Reverse-engineer, decompile, or attempt to extract source code</li>
+          <li>Distribute or sell the application to any third party</li>
+          <li>Rent, lease, or offer the application as a service</li>
+          <li>Remove copyright, trademark, or other proprietary notices</li>
+        </ul>
+      </div>
 
-  <div class="section">
-    <h2><span class="icon">📣</span> Reklamlar</h2>
-    <p>Uygulama, Google AdMob aracılığıyla reklam içerebilir. Reklamlar banner, geçiş reklamı (interstitial) ve ödüllü reklam formatlarında görünebilir. Bu reklamlar üçüncü taraflarca sağlanmaktadır; Hexlume Games, reklam içeriklerinin doğruluğu veya güvenliği konusunda sorumluluk kabul etmez.</p>
-  </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> Intellectual Property</h2>
+        <p>The application and all of its content (game mechanics, graphic design, sound effects, music, code, text, and
+          other materials) are owned by or licensed to <strong>Hexlume Games</strong>. All rights reserved.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle", and "Hexlume Games" are registered or pending trademarks and may
+          not be used without prior written permission.</p>
+      </div>
 
-  <div class="section">
-    <h2><span class="icon">🚫</span> Yasaklı Kullanımlar</h2>
-    <p>Aşağıdaki kullanımlar kesinlikle yasaktır:</p>
-    <ul>
-      <li>Oyun verilerini, puanları veya ilerleme durumunu hileli yollarla değiştirme</li>
-      <li>Uygulamanın normal işleyişini bozacak bot, script veya otomatik araçlar kullanma</li>
-      <li>Uygulamayı yasalara aykırı amaçlarla kullanma</li>
-      <li>Diğer kullanıcıların deneyimini olumsuz etkileyen herhangi bir eylem</li>
-    </ul>
-  </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> Advertising</h2>
+        <p>The application may display advertisements via Google AdMob in banner, interstitial, and rewarded formats.
+          These ads are served by third parties; Hexlume Games accepts no responsibility for the accuracy or safety of
+          ad content.</p>
+      </div>
 
-  <div class="section">
-    <h2><span class="icon">⚠️</span> Garanti Reddi</h2>
-    <div class="warn">
-      Uygulama "OLDUĞU GİBİ" sunulmaktadır. Hexlume Games; uygulamanın kesintisiz, hatasız veya belirli bir amaca uygun çalışacağını garanti etmez. Yürürlükteki tüketici koruma mevzuatının zorunlu kıldığı garantiler bu reddin dışındadır.
+      <div class="section">
+        <h2><span class="icon">🚫</span> Prohibited Conduct</h2>
+        <p>The following actions are strictly prohibited:</p>
+        <ul>
+          <li>Manipulating game data, scores, or progress through unauthorized means</li>
+          <li>Using bots, scripts, or automated tools to disrupt normal app operation</li>
+          <li>Using the application for any unlawful purpose</li>
+          <li>Any action that negatively affects the experience of other users</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Disclaimer of Warranties</h2>
+        <div class="warn">
+          The application is provided "AS IS." Hexlume Games makes no warranty that the application will be
+          uninterrupted, error-free, or fit for any particular purpose. Mandatory warranties under applicable consumer
+          protection law are not excluded by this disclaimer.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔐</span> Limitation of Liability</h2>
+        <p>To the maximum extent permitted by applicable law, Hexlume Games shall not be liable for any indirect,
+          incidental, special, or consequential damages arising from use of the application (including data loss, loss
+          of revenue, or business interruption).</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">👶</span> Age Requirement</h2>
+        <p>The application is not intended for individuals under the age of 13. Users between 13 and 18 are advised to
+          use the application under parental or guardian supervision.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔄</span> Changes &amp; Termination</h2>
+        <p>Hexlume Games reserves the right to update these Terms at any time without prior notice. The current version
+          will always be published on this page. Continued use of the application constitutes acceptance of the updated
+          Terms.</p>
+        <p>Hexlume Games may, at its sole discretion, terminate your license to use the application for any reason.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Governing Law</h2>
+        <p>These Terms are governed by the laws of the Republic of Turkey. Turkish courts shall have jurisdiction over
+          any disputes. Where the application is accessed via the Google Play Store, Google Play Terms of Service also
+          apply.</p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">🔗</span> Google Play Terms</h2>
+        <p>The application is distributed via the Google Play Store. By downloading and using the application through
+          this platform, you also accept Google's Terms of Service:</p>
+        <p><a href="https://play.google.com/about/play-terms/" target="_blank">play.google.com/about/play-terms/</a></p>
+      </div>
+
+      <div class="section">
+        <h2><span class="icon">📬</span> Contact</h2>
+        <p><strong>Hexlume Games</strong><br>
+          Email: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">🔐</span> Sorumluluk Sınırlaması</h2>
-    <p>Yürürlükteki yasaların izin verdiği azami ölçüde Hexlume Games; uygulamanın kullanımından kaynaklanan dolaylı, arızi, özel veya sonuç niteliğindeki zararlardan (veri kaybı, gelir kaybı veya işletme kesintisi dahil) sorumlu tutulamaz.</p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">👶</span> Yaş Sınırı</h2>
-    <p>Uygulama 13 yaşın altındaki bireyler tarafından kullanıma yönelik değildir. 13 ile 18 yaş arasındaki kullanıcıların uygulamayı ebeveyn veya vasi gözetiminde kullanması önerilir.</p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">🔄</span> Değişiklikler ve Fesih</h2>
-    <p>Hexlume Games, bu şartları önceden bildirmeksizin güncelleme hakkını saklı tutar. Güncel şartlar daima bu sayfada yayımlanır. Uygulamayı kullanmaya devam etmeniz güncellenen şartları kabul ettiğiniz anlamına gelir.</p>
-    <p>Hexlume Games, herhangi bir nedenle uygulamayı kullandırma lisansınızı kendi takdirine bağlı olarak sonlandırabilir.</p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">⚖️</span> Uygulanacak Hukuk</h2>
-    <p>Bu şartlar, Türkiye Cumhuriyeti hukukuna tabidir. Uyuşmazlıklarda Türk mahkemeleri yetkilidir. Uygulamanın Google Play Store üzerinden erişilmesi durumunda Google Play Hizmet Şartları da geçerlidir.</p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">🔗</span> Google Play Şartları</h2>
-    <p>Uygulama, Google Play Store üzerinden dağıtılmaktadır. Uygulamayı bu platform üzerinden indirip kullanarak Google'ın Hizmet Şartlarını da kabul etmiş olursunuz:</p>
-    <p><a href="https://play.google.com/intl/tr/about/play-terms/" target="_blank">play.google.com/intl/tr/about/play-terms/</a></p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">📬</span> İletişim</h2>
-    <p><strong>Hexlume Games</strong><br>
-    E-posta: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
-  </div>
-
-</div>
-</div>
-
-<!-- =========================================================
-     ENGLISH
-     ========================================================= -->
-<hr class="divider">
-<p class="section-label">English Version</p>
-
-<div id="en">
-<div class="container">
-
-  <div class="section">
-    <h2><span class="icon">📄</span> Acceptance</h2>
-    <p>These Terms of Service govern your use of <strong>Flow Sort: Color Tube Puzzle</strong> (app ID: <code>com.hexlumegames.flowsort</code>), developed by <strong>Hexlume Games</strong>.</p>
-    <p><strong>Last updated:</strong> May 26, 2026</p>
-    <div class="highlight">
-      By downloading or using the application, you confirm that you have read and agree to these Terms. If you do not agree, please do not use the application.
+  <!-- Deutsch (German) -->
+  <div id="lang-de" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Annahme</h2>
+        <p>Diese Nutzungsbedingungen regeln Ihre Nutzung von <strong>Flow Sort: Color Tube Puzzle</strong> (App-ID:
+          <code>com.hexlumegames.flowsort</code>), entwickelt von <strong>Hexlume Games</strong>.</p>
+        <p><strong>Letzte Aktualisierung:</strong> 26. Mai 2026</p>
+        <div class="highlight">Durch Herunterladen oder Nutzung der App bestätigen Sie, dass Sie diese Bedingungen
+          gelesen haben und ihnen zustimmen. Wenn Sie nicht zustimmen, nutzen Sie die App bitte nicht.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> Lizenz &amp; Nutzungsrecht</h2>
+        <p>Hexlume Games gewährt Ihnen eine beschränkte, nicht exklusive, nicht übertragbare Lizenz zur Nutzung dieser
+          App für persönliche, nicht-kommerzielle Zwecke. Im Rahmen dieser Lizenz ist es Ihnen <strong>nicht</strong>
+          erlaubt:</p>
+        <ul>
+          <li>Die App zu kopieren, zu modifizieren oder abgeleitete Werke zu erstellen</li>
+          <li>Die App zurückzuentwickeln, zu dekompilieren oder zu versuchen, den Quellcode zu extrahieren</li>
+          <li>Die App an Dritte zu vertreiben oder zu verkaufen</li>
+          <li>Die App zu vermieten, zu verleasen oder als Dienstleistung anzubieten</li>
+          <li>Urheberrechts-, Marken- oder andere Eigentumsvermerke zu entfernen</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> Geistiges Eigentum</h2>
+        <p>Die App und alle ihre Inhalte (Spielmechaniken, Grafikdesign, Soundeffekte, Musik, Code, Texte und andere
+          Materialien) sind Eigentum von <strong>Hexlume Games</strong> oder lizenziert. Alle Rechte vorbehalten.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" und "Hexlume Games" sind eingetragene oder angemeldete Marken und
+          dürfen nicht ohne vorherige schriftliche Genehmigung verwendet werden.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> Werbung</h2>
+        <p>Die App kann Werbung über Google AdMob in Banner-, Interstitial- und Reward-Formaten anzeigen. Diese Anzeigen
+          werden von Dritten bereitgestellt; Hexlume Games übernimmt keine Verantwortung für die Richtigkeit oder
+          Sicherheit der Anzeigeninhalte.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> Verbotene Handlungen</h2>
+        <ul>
+          <li>Manipulation von Spieldaten, Punkteständen oder Fortschritt durch unbefugte Mittel</li>
+          <li>Verwendung von Bots, Skripten oder automatisierten Werkzeugen, die den normalen Betrieb stören</li>
+          <li>Nutzung der App für rechtswidrige Zwecke</li>
+          <li>Jede Handlung, die die Erfahrung anderer Benutzer negativ beeinflusst</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Haftungsausschluss</h2>
+        <div class="warn">Die App wird "WIE BESEHEN" bereitgestellt. Hexlume Games übernimmt keine Garantie dafür, dass
+          die App unterbrechungsfrei, fehlerfrei oder für einen bestimmten Zweck geeignet ist. Gesetzlich
+          vorgeschriebene Garantien bleiben hiervon unberührt.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> Haftungsbeschränkung</h2>
+        <p>Im gesetzlich zulässigen Umfang haftet Hexlume Games nicht für indirekte, zufällige, besondere oder
+          Folgeschäden, die aus der Nutzung der App entstehen (einschließlich Datenverlust, Umsatzverlust oder
+          Betriebsunterbrechung).</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> Altersbeschränkung</h2>
+        <p>Die App ist nicht für Personen unter 13 Jahren bestimmt. Benutzer zwischen 13 und 18 Jahren sollten die App
+          unter Aufsicht eines Elternteils oder Erziehungsberechtigten nutzen.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> Änderungen &amp; Kündigung</h2>
+        <p>Hexlume Games behält sich das Recht vor, diese Bedingungen jederzeit ohne vorherige Ankündigung zu
+          aktualisieren. Die aktuelle Version wird stets auf dieser Seite veröffentlicht. Die fortgesetzte Nutzung der
+          App gilt als Zustimmung zu den aktualisierten Bedingungen.</p>
+        <p>Hexlume Games kann Ihre Lizenz zur Nutzung der App nach eigenem Ermessen aus beliebigem Grund kündigen.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Anwendbares Recht</h2>
+        <p>Diese Bedingungen unterliegen dem Recht der Republik Türkei. Für Streitigkeiten sind die türkischen Gerichte
+          zuständig. Bei Zugriff über den Google Play Store gelten auch die Google Play Nutzungsbedingungen.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Google Play Bedingungen</h2>
+        <p><a href="https://play.google.com/intl/de/about/play-terms/"
+            target="_blank">play.google.com/intl/de/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> Kontakt</h2>
+        <p><strong>Hexlume Games</strong><br>E-Mail: <a
+            href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">🎮</span> License &amp; Permitted Use</h2>
-    <p>Hexlume Games grants you a limited, non-exclusive, non-transferable license to use this application for personal, non-commercial purposes. Under this license, you may <strong>not</strong>:</p>
-    <ul>
-      <li>Copy, modify, or create derivative works of the application</li>
-      <li>Reverse-engineer, decompile, or attempt to extract source code</li>
-      <li>Distribute or sell the application to any third party</li>
-      <li>Rent, lease, or offer the application as a service</li>
-      <li>Remove copyright, trademark, or other proprietary notices</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">🏆</span> Intellectual Property</h2>
-    <p>The application and all of its content (game mechanics, graphic design, sound effects, music, code, text, and other materials) are owned by or licensed to <strong>Hexlume Games</strong>. All rights reserved.</p>
-    <p>"Flow Sort", "Flow Sort: Color Tube Puzzle", and "Hexlume Games" are registered or pending trademarks and may not be used without prior written permission.</p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">📣</span> Advertising</h2>
-    <p>The application may display advertisements via Google AdMob in banner, interstitial, and rewarded formats. These ads are served by third parties; Hexlume Games accepts no responsibility for the accuracy or safety of ad content.</p>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">🚫</span> Prohibited Conduct</h2>
-    <p>The following actions are strictly prohibited:</p>
-    <ul>
-      <li>Manipulating game data, scores, or progress through unauthorized means</li>
-      <li>Using bots, scripts, or automated tools to disrupt normal app operation</li>
-      <li>Using the application for any unlawful purpose</li>
-      <li>Any action that negatively affects the experience of other users</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2><span class="icon">⚠️</span> Disclaimer of Warranties</h2>
-    <div class="warn">
-      The application is provided "AS IS." Hexlume Games makes no warranty that the application will be uninterrupted, error-free, or fit for any particular purpose. Mandatory warranties under applicable consumer protection law are not excluded by this disclaimer.
+  <!-- Español -->
+  <div id="lang-es" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Aceptación</h2>
+        <p>Estos Términos de Servicio rigen el uso de <strong>Flow Sort: Color Tube Puzzle</strong> (ID de aplicación:
+          <code>com.hexlumegames.flowsort</code>), desarrollado por <strong>Hexlume Games</strong>.</p>
+        <p><strong>Última actualización:</strong> 26 de mayo de 2026</p>
+        <div class="highlight">Al descargar o utilizar la aplicación, confirma que ha leído y acepta estos Términos. Si
+          no está de acuerdo, no utilice la aplicación.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> Licencia y uso permitido</h2>
+        <p>Hexlume Games le concede una licencia limitada, no exclusiva e intransferible para usar esta aplicación con
+          fines personales y no comerciales. Bajo esta licencia, <strong>no</strong> puede:</p>
+        <ul>
+          <li>Copiar, modificar o crear obras derivadas de la aplicación</li>
+          <li>Realizar ingeniería inversa, descompilar o intentar extraer el código fuente</li>
+          <li>Distribuir o vender la aplicación a terceros</li>
+          <li>Alquilar, arrendar u ofrecer la aplicación como servicio</li>
+          <li>Eliminar avisos de derechos de autor, marcas comerciales u otros derechos de propiedad</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> Propiedad intelectual</h2>
+        <p>La aplicación y todo su contenido (mecánicas de juego, diseño gráfico, efectos de sonido, música, código,
+          texto y otros materiales) son propiedad de <strong>Hexlume Games</strong> o están bajo licencia. Todos los
+          derechos reservados.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" y "Hexlume Games" son marcas registradas o en proceso y no pueden
+          utilizarse sin permiso previo por escrito.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> Publicidad</h2>
+        <p>La aplicación puede mostrar anuncios a través de Google AdMob en formatos de banner, intersticial y
+          recompensado. Estos anuncios son proporcionados por terceros; Hexlume Games no asume responsabilidad por la
+          exactitud o seguridad del contenido de los anuncios.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> Conducta prohibida</h2>
+        <ul>
+          <li>Manipular datos del juego, puntuaciones o progreso mediante medios no autorizados</li>
+          <li>Usar bots, scripts o herramientas automatizadas que interrumpan el funcionamiento normal</li>
+          <li>Usar la aplicación para fines ilegales</li>
+          <li>Cualquier acción que afecte negativamente la experiencia de otros usuarios</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Exención de garantías</h2>
+        <div class="warn">La aplicación se proporciona "TAL CUAL". Hexlume Games no garantiza que la aplicación sea
+          ininterrumpida, libre de errores o adecuada para un propósito particular. Las garantías obligatorias según la
+          ley aplicable no quedan excluidas por esta exención.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> Limitación de responsabilidad</h2>
+        <p>En la máxima medida permitida por la ley, Hexlume Games no será responsable por daños indirectos,
+          incidentales, especiales o consecuentes derivados del uso de la aplicación (incluyendo pérdida de datos,
+          pérdida de ingresos o interrupción del negocio).</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> Requisito de edad</h2>
+        <p>La aplicación no está destinada a menores de 13 años. Se recomienda que los usuarios de entre 13 y 18 años
+          utilicen la aplicación bajo la supervisión de un padre o tutor.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> Cambios y terminación</h2>
+        <p>Hexlume Games se reserva el derecho de actualizar estos Términos en cualquier momento sin previo aviso. La
+          versión actual se publicará siempre en esta página. El uso continuado de la aplicación constituye la
+          aceptación de los Términos actualizados.</p>
+        <p>Hexlume Games puede, a su entera discreción, terminar su licencia para usar la aplicación por cualquier
+          motivo.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Ley aplicable</h2>
+        <p>Estos Términos se rigen por las leyes de la República de Turquía. Los tribunales turcos tendrán jurisdicción
+          sobre cualquier disputa. Si la aplicación se accede a través de Google Play Store, también se aplican los
+          Términos de Servicio de Google Play.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Términos de Google Play</h2>
+        <p><a href="https://play.google.com/intl/es/about/play-terms/"
+            target="_blank">play.google.com/intl/es/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> Contacto</h2>
+        <p><strong>Hexlume Games</strong><br>Correo electrónico: <a
+            href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">🔐</span> Limitation of Liability</h2>
-    <p>To the maximum extent permitted by applicable law, Hexlume Games shall not be liable for any indirect, incidental, special, or consequential damages arising from use of the application (including data loss, loss of revenue, or business interruption).</p>
+  <!-- Français -->
+  <div id="lang-fr" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Acceptation</h2>
+        <p>Les présentes conditions d'utilisation régissent votre utilisation de <strong>Flow Sort: Color Tube
+            Puzzle</strong> (ID d'application : <code>com.hexlumegames.flowsort</code>), développé par <strong>Hexlume
+            Games</strong>.</p>
+        <p><strong>Dernière mise à jour :</strong> 26 mai 2026</p>
+        <div class="highlight">En téléchargeant ou en utilisant l'application, vous confirmez avoir lu et accepté ces
+          conditions. Si vous n'êtes pas d'accord, veuillez ne pas utiliser l'application.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> Licence et utilisation autorisée</h2>
+        <p>Hexlume Games vous accorde une licence limitée, non exclusive et non transférable pour utiliser cette
+          application à des fins personnelles et non commerciales. Dans le cadre de cette licence, vous <strong>ne
+            pouvez pas</strong> :</p>
+        <ul>
+          <li>Copier, modifier ou créer des œuvres dérivées de l'application</li>
+          <li>Désosser, décompiler ou tenter d'extraire le code source</li>
+          <li>Distribuer ou vendre l'application à des tiers</li>
+          <li>Louer, proposer l'application comme service</li>
+          <li>Supprimer les avis de droits d'auteur, de marques ou autres droits de propriété</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> Propriété intellectuelle</h2>
+        <p>L'application et tout son contenu (mécaniques de jeu, design graphique, effets sonores, musique, code, texte
+          et autres matériaux) appartiennent à <strong>Hexlume Games</strong> ou sont sous licence. Tous droits
+          réservés.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" et "Hexlume Games" sont des marques déposées ou en cours
+          d'enregistrement et ne peuvent être utilisées sans autorisation écrite préalable.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> Publicité</h2>
+        <p>L'application peut afficher des publicités via Google AdMob sous forme de bannières, interstitiels et
+          récompensées. Ces annonces sont fournies par des tiers ; Hexlume Games n'assume aucune responsabilité quant à
+          l'exactitude ou la sécurité du contenu publicitaire.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> Conduite interdite</h2>
+        <ul>
+          <li>Manipuler les données du jeu, les scores ou la progression par des moyens non autorisés</li>
+          <li>Utiliser des bots, scripts ou outils automatisés perturbant le fonctionnement normal</li>
+          <li>Utiliser l'application à des fins illégales</li>
+          <li>Toute action affectant négativement l'expérience des autres utilisateurs</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Clause de non-garantie</h2>
+        <div class="warn">L'application est fournie "EN L'ÉTAT". Hexlume Games ne garantit pas que l'application sera
+          ininterrompue, sans erreur ou adaptée à un usage particulier. Les garanties légales obligatoires ne sont pas
+          exclues par cette clause.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> Limitation de responsabilité</h2>
+        <p>Dans toute la mesure permise par la loi, Hexlume Games ne saurait être tenu responsable des dommages
+          indirects, accessoires, spéciaux ou consécutifs découlant de l'utilisation de l'application (y compris la
+          perte de données, de revenus ou l'interruption d'activité).</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> Âge requis</h2>
+        <p>L'application n'est pas destinée aux personnes de moins de 13 ans. Les utilisateurs âgés de 13 à 18 ans sont
+          invités à utiliser l'application sous la supervision d'un parent ou tuteur.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> Modifications et résiliation</h2>
+        <p>Hexlume Games se réserve le droit de mettre à jour ces conditions à tout moment sans préavis. La version
+          actuelle sera toujours publiée sur cette page. L'utilisation continue de l'application constitue une
+          acceptation des conditions mises à jour.</p>
+        <p>Hexlume Games peut, à sa seule discrétion, résilier votre licence d'utilisation de l'application pour quelque
+          raison que ce soit.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Droit applicable</h2>
+        <p>Ces conditions sont régies par les lois de la République de Turquie. Les tribunaux turcs ont compétence pour
+          tout litige. Lorsque l'application est accessible via Google Play Store, les conditions d'utilisation de
+          Google Play s'appliquent également.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Conditions Google Play</h2>
+        <p><a href="https://play.google.com/intl/fr/about/play-terms/"
+            target="_blank">play.google.com/intl/fr/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> Contact</h2>
+        <p><strong>Hexlume Games</strong><br>E-mail : <a
+            href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">👶</span> Age Requirement</h2>
-    <p>The application is not intended for individuals under the age of 13. Users between 13 and 18 are advised to use the application under parental or guardian supervision.</p>
+  <!-- Português -->
+  <div id="lang-pt" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Aceitação</h2>
+        <p>Estes Termos de Serviço regem o uso de <strong>Flow Sort: Color Tube Puzzle</strong> (ID do aplicativo:
+          <code>com.hexlumegames.flowsort</code>), desenvolvido por <strong>Hexlume Games</strong>.</p>
+        <p><strong>Última atualização:</strong> 26 de maio de 2026</p>
+        <div class="highlight">Ao baixar ou usar o aplicativo, você confirma que leu e concorda com estes Termos. Se não
+          concordar, não use o aplicativo.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> Licença e uso permitido</h2>
+        <p>Hexlume Games concede a você uma licença limitada, não exclusiva e intransferível para usar este aplicativo
+          para fins pessoais e não comerciais. Sob esta licença, você <strong>não pode</strong>:</p>
+        <ul>
+          <li>Copiar, modificar ou criar obras derivadas do aplicativo</li>
+          <li>Fazer engenharia reversa, descompilar ou tentar extrair o código-fonte</li>
+          <li>Distribuir ou vender o aplicativo a terceiros</li>
+          <li>Alugar, arrendar ou oferecer o aplicativo como serviço</li>
+          <li>Remover avisos de direitos autorais, marcas registradas ou outros avisos de propriedade</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> Propriedade intelectual</h2>
+        <p>O aplicativo e todo o seu conteúdo (mecânicas de jogo, design gráfico, efeitos sonoros, música, código, texto
+          e outros materiais) são de propriedade ou licenciados a <strong>Hexlume Games</strong>. Todos os direitos
+          reservados.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" e "Hexlume Games" são marcas registradas ou em processo e não
+          podem ser usadas sem permissão prévia por escrito.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> Publicidade</h2>
+        <p>O aplicativo pode exibir anúncios através do Google AdMob nos formatos banner, intersticial e recompensado.
+          Esses anúncios são fornecidos por terceiros; a Hexlume Games não se responsabiliza pela precisão ou segurança
+          do conteúdo dos anúncios.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> Conduta proibida</h2>
+        <ul>
+          <li>Manipular dados do jogo, pontuações ou progresso por meios não autorizados</li>
+          <li>Usar bots, scripts ou ferramentas automatizadas que interrompam o funcionamento normal</li>
+          <li>Usar o aplicativo para fins ilegais</li>
+          <li>Qualquer ação que afete negativamente a experiência de outros usuários</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Isenção de garantias</h2>
+        <div class="warn">O aplicativo é fornecido "COMO ESTÁ". A Hexlume Games não garante que o aplicativo será
+          ininterrupto, livre de erros ou adequado a qualquer finalidade específica. As garantias obrigatórias sob a lei
+          de proteção ao consumidor aplicável não são excluídas por esta isenção.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> Limitação de responsabilidade</h2>
+        <p>Na máxima extensão permitida pela lei aplicável, a Hexlume Games não será responsável por quaisquer danos
+          indiretos, incidentais, especiais ou consequenciais decorrentes do uso do aplicativo (incluindo perda de
+          dados, perda de receita ou interrupção de negócios).</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> Requisito de idade</h2>
+        <p>O aplicativo não é destinado a menores de 13 anos. Recomenda-se que usuários entre 13 e 18 anos usem o
+          aplicativo sob supervisão de um dos pais ou responsável.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> Alterações e rescisão</h2>
+        <p>A Hexlume Games reserva-se o direito de atualizar estes Termos a qualquer momento sem aviso prévio. A versão
+          atual será sempre publicada nesta página. O uso continuado do aplicativo constitui aceitação dos Termos
+          atualizados.</p>
+        <p>A Hexlume Games pode, a seu exclusivo critério, rescindir sua licença de uso do aplicativo por qualquer
+          motivo.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Lei aplicável</h2>
+        <p>Estes Termos são regidos pelas leis da República da Turquia. Os tribunais turcos terão jurisdição sobre
+          quaisquer disputas. Quando o aplicativo for acessado via Google Play Store, os Termos de Serviço do Google
+          Play também se aplicam.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Termos do Google Play</h2>
+        <p><a href="https://play.google.com/intl/pt-BR/about/play-terms/"
+            target="_blank">play.google.com/intl/pt-BR/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> Contato</h2>
+        <p><strong>Hexlume Games</strong><br>E-mail: <a
+            href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">🔄</span> Changes &amp; Termination</h2>
-    <p>Hexlume Games reserves the right to update these Terms at any time without prior notice. The current version will always be published on this page. Continued use of the application constitutes acceptance of the updated Terms.</p>
-    <p>Hexlume Games may, at its sole discretion, terminate your license to use the application for any reason.</p>
+  <!-- Русский -->
+  <div id="lang-ru" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> Принятие</h2>
+        <p>Настоящие Условия использования регулируют использование вами приложения <strong>Flow Sort: Color Tube
+            Puzzle</strong> (ID приложения: <code>com.hexlumegames.flowsort</code>), разработанного <strong>Hexlume
+            Games</strong>.</p>
+        <p><strong>Последнее обновление:</strong> 26 мая 2026 г.</p>
+        <div class="highlight">Загружая или используя приложение, вы подтверждаете, что прочитали и согласны с этими
+          Условиями. Если вы не согласны, пожалуйста, не используйте приложение.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> Лицензия и разрешенное использование</h2>
+        <p>Hexlume Games предоставляет вам ограниченную, неисключительную, непередаваемую лицензию на использование
+          этого приложения в личных, некоммерческих целях. В рамках этой лицензии вы <strong>не можете</strong>:</p>
+        <ul>
+          <li>Копировать, изменять или создавать производные работы</li>
+          <li>Заниматься обратной разработкой, декомпиляцией или пытаться извлечь исходный код</li>
+          <li>Распространять или продавать приложение третьим лицам</li>
+          <li>Сдавать в аренду или предлагать приложение как услугу</li>
+          <li>Удалять уведомления об авторских правах, товарных знаках или других правах собственности</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> Интеллектуальная собственность</h2>
+        <p>Приложение и весь его контент (игровая механика, графический дизайн, звуковые эффекты, музыка, код, текст и
+          другие материалы) принадлежат <strong>Hexlume Games</strong> или лицензированы. Все права защищены.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" и "Hexlume Games" являются зарегистрированными или находящимися
+          на регистрации товарными знаками и не могут использоваться без предварительного письменного разрешения.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> Реклама</h2>
+        <p>Приложение может показывать рекламу через Google AdMob в формате баннеров, межстраничных объявлений и
+          вознаграждений. Эти объявления предоставляются третьими лицами; Hexlume Games не несет ответственности за
+          точность или безопасность рекламного контента.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> Запрещенное поведение</h2>
+        <ul>
+          <li>Манипулирование игровыми данными, очками или прогрессом несанкционированными средствами</li>
+          <li>Использование ботов, скриптов или автоматизированных инструментов, нарушающих нормальную работу</li>
+          <li>Использование приложения в незаконных целях</li>
+          <li>Любые действия, негативно влияющие на опыт других пользователей</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> Отказ от гарантий</h2>
+        <div class="warn">Приложение предоставляется «КАК ЕСТЬ». Hexlume Games не гарантирует, что приложение будет
+          работать без перебоев, ошибок или будет пригодно для какой-либо конкретной цели. Обязательные гарантии в
+          соответствии с применимым законодательством о защите прав потребителей не исключаются настоящим отказом.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> Ограничение ответственности</h2>
+        <p>В максимальной степени, разрешенной применимым законодательством, Hexlume Games не несет ответственности за
+          любые косвенные, случайные, особые или штрафные убытки, возникшие в результате использования приложения
+          (включая потерю данных, потерю дохода или перерыв в работе).</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> Возрастное ограничение</h2>
+        <p>Приложение не предназначено для лиц младше 13 лет. Пользователям в возрасте от 13 до 18 лет рекомендуется
+          использовать приложение под наблюдением родителей или опекунов.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> Изменения и прекращение действия</h2>
+        <p>Hexlume Games оставляет за собой право обновлять настоящие Условия в любое время без предварительного
+          уведомления. Текущая версия всегда будет опубликована на этой странице. Продолжение использования приложения
+          означает принятие обновленных Условий.</p>
+        <p>Hexlume Games может по своему усмотрению прекратить действие вашей лицензии на использование приложения по
+          любой причине.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> Применимое право</h2>
+        <p>Настоящие Условия регулируются законодательством Турецкой Республики. Турецкие суды обладают юрисдикцией по
+          любым спорам. Если приложение доступно через Google Play Store, также применяются Условия использования Google
+          Play.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Условия Google Play</h2>
+        <p><a href="https://play.google.com/intl/ru/about/play-terms/"
+            target="_blank">play.google.com/intl/ru/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> Контакты</h2>
+        <p><strong>Hexlume Games</strong><br>Электронная почта: <a
+            href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">⚖️</span> Governing Law</h2>
-    <p>These Terms are governed by the laws of the Republic of Turkey. Turkish courts shall have jurisdiction over any disputes. Where the application is accessed via the Google Play Store, Google Play Terms of Service also apply.</p>
+  <!-- 日本語 -->
+  <div id="lang-ja" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> 承諾</h2>
+        <p>本利用規約は、<strong>Hexlume Games</strong>が開発した<strong>Flow Sort: Color Tube Puzzle</strong>（アプリID:
+          <code>com.hexlumegames.flowsort</code>）の使用を規定します。</p>
+        <p><strong>最終更新:</strong> 2026年5月26日</p>
+        <div class="highlight">アプリをダウンロードまたは使用することにより、本規約を読み、同意したものとみなされます。同意しない場合は、アプリを使用しないでください。</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> ライセンスと許可される使用</h2>
+        <p>Hexlume
+          Gamesは、個人の非商業的目的のためにこのアプリを使用するための限定的、非独占的、譲渡不可能なライセンスを付与します。このライセンスの下では、以下の行為は<strong>禁止</strong>されます：</p>
+        <ul>
+          <li>アプリの複製、変更、または二次的著作物の作成</li>
+          <li>リバースエンジニアリング、逆コンパイル、ソースコードの抽出</li>
+          <li>第三者への配布または販売</li>
+          <li>アプリの貸与、リース、またはサービスとしての提供</li>
+          <li>著作権、商標、その他の所有権表示の削除</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> 知的財産</h2>
+        <p>アプリおよびそのすべてのコンテンツ（ゲームメカニクス、グラフィックデザイン、効果音、音楽、コード、テキストなど）は、<strong>Hexlume
+            Games</strong>に所有またはライセンスされています。すべての権利は留保されます。</p>
+        <p>"Flow Sort"、"Flow Sort: Color Tube Puzzle"、"Hexlume Games" は登録商標または商標登録出願中であり、事前の書面による許可なく使用することはできません。</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> 広告</h2>
+        <p>アプリは、Google AdMobを通じてバナー、インタースティシャル、リワード形式の広告を表示する場合があります。これらの広告は第三者によって配信されます。Hexlume
+          Gamesは、広告コンテンツの正確性や安全性について責任を負いません。</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> 禁止行為</h2>
+        <ul>
+          <li>不正な手段によるゲームデータ、スコア、進行状況の改ざん</li>
+          <li>ボット、スクリプト、自動ツールを使用した通常の動作の妨害</li>
+          <li>違法目的でのアプリの使用</li>
+          <li>他のユーザーの体験に悪影響を与える行為</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> 保証の否認</h2>
+        <div class="warn">アプリは「現状有姿」で提供されます。Hexlume
+          Gamesは、アプリが中断なく、エラーなく、または特定の目的に適合することを保証しません。適用法に基づく強制的な保証は、この否認によって除外されません。</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> 責任の制限</h2>
+        <p>適用法で認められる最大限の範囲において、Hexlume Gamesは、アプリの使用に起因する間接的、偶発的、特別、または結果的な損害（データの損失、収益の損失、業務の中断を含む）について責任を負いません。</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> 年齢要件</h2>
+        <p>このアプリは13歳未満の方を対象としていません。13歳から18歳のユーザーは、保護者または後見人の監督の下でアプリを使用することをお勧めします。</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> 変更と終了</h2>
+        <p>Hexlume Gamesは、事前の通知なくいつでも本規約を更新する権利を留保します。最新版は常にこのページに掲載されます。アプリの継続使用は、更新された規約への同意とみなされます。</p>
+        <p>Hexlume Gamesは、独自の裁量により、いかなる理由でもアプリの使用ライセンスを終了することができます。</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> 準拠法</h2>
+        <p>本規約は、トルコ共和国の法律に準拠します。紛争については、トルコの裁判所が管轄権を有します。Google Playストアからアプリにアクセスする場合、Google Play利用規約も適用されます。</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Google Play 利用規約</h2>
+        <p><a href="https://play.google.com/intl/ja/about/play-terms/"
+            target="_blank">play.google.com/intl/ja/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> お問い合わせ</h2>
+        <p><strong>Hexlume Games</strong><br>Eメール: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a>
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">🔗</span> Google Play Terms</h2>
-    <p>The application is distributed via the Google Play Store. By downloading and using the application through this platform, you also accept Google's Terms of Service:</p>
-    <p><a href="https://play.google.com/about/play-terms/" target="_blank">play.google.com/about/play-terms/</a></p>
+  <!-- 한국어 -->
+  <div id="lang-ko" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> 수락</h2>
+        <p>본 이용약관은 <strong>Hexlume Games</strong>가 개발한 <strong>Flow Sort: Color Tube Puzzle</strong>(앱 ID:
+          <code>com.hexlumegames.flowsort</code>)의 사용을 규율합니다.</p>
+        <p><strong>최종 업데이트:</strong> 2026년 5월 26일</p>
+        <div class="highlight">앱을 다운로드하거나 사용함으로써 귀하는 본 약관을 읽고 동의함을 확인하는 것입니다. 동의하지 않으시면 앱을 사용하지 마십시오.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> 라이선스 및 허용된 사용</h2>
+        <p>Hexlume Games는 개인적, 비상업적 목적으로 이 앱을 사용할 수 있는 제한적, 비독점적, 양도 불가능한 라이선스를 부여합니다. 본 라이선스에 따라 귀하는 다음을 <strong>할 수
+            없습니다</strong>:</p>
+        <ul>
+          <li>앱을 복사, 수정 또는 파생 저작물 생성</li>
+          <li>역공학, 디컴파일 또는 소스 코드 추출 시도</li>
+          <li>제3자에게 앱 배포 또는 판매</li>
+          <li>앱을 임대, 대여 또는 서비스로 제공</li>
+          <li>저작권, 상표권 또는 기타 소유권 고지 제거</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> 지적 재산권</h2>
+        <p>앱 및 모든 콘텐츠(게임 메커니즘, 그래픽 디자인, 음향 효과, 음악, 코드, 텍스트 및 기타 자료)는 <strong>Hexlume Games</strong> 소유 또는 라이선스 하에 있습니다.
+          모든 권리는 보유됩니다.</p>
+        <p>"Flow Sort", "Flow Sort: Color Tube Puzzle" 및 "Hexlume Games"는 등록 상표 또는 출원 중인 상표이며 사전 서면 허가 없이 사용할 수 없습니다.
+        </p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> 광고</h2>
+        <p>앱은 Google AdMob을 통해 배너, 전면 광고, 보상형 광고 형식으로 광고를 표시할 수 있습니다. 이러한 광고는 제3자가 제공하며, Hexlume Games는 광고 콘텐츠의 정확성이나
+          안전성에 대해 책임을 지지 않습니다.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> 금지된 행위</h2>
+        <ul>
+          <li>무단 수단을 통한 게임 데이터, 점수, 진행 상황 조작</li>
+          <li>정상적인 작동을 방해하는 봇, 스크립트 또는 자동화 도구 사용</li>
+          <li>불법 목적을 위한 앱 사용</li>
+          <li>다른 사용자의 경험에 부정적인 영향을 미치는 행위</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> 보증 부인</h2>
+        <div class="warn">앱은 "있는 그대로" 제공됩니다. Hexlume Games는 앱이 중단 없이, 오류 없이, 또는 특정 목적에 적합할 것이라고 보증하지 않습니다. 적용되는 소비자 보호법에
+          따른 의무적 보증은 이 부인에 의해 배제되지 않습니다.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> 책임의 제한</h2>
+        <p>적용 법률이 허용하는 최대 범위 내에서, Hexlume Games는 앱 사용으로 인해 발생하는 간접적, 부수적, 특별적 또는 결과적 손해(데이터 손실, 수익 손실, 비즈니스 중단 포함)에 대해
+          책임을 지지 않습니다.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> 연령 요건</h2>
+        <p>이 앱은 13세 미만의 개인을 대상으로 하지 않습니다. 13세에서 18세 사이의 사용자는 부모 또는 보호자의 감독 하에 앱을 사용하는 것이 좋습니다.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> 변경 및 종료</h2>
+        <p>Hexlume Games는 사전 통지 없이 언제든지 본 약관을 업데이트할 권리를 보유합니다. 최신 버전은 항상 이 페이지에 게시됩니다. 앱을 계속 사용하는 것은 업데이트된 약관에 동의하는 것으로
+          간주됩니다.</p>
+        <p>Hexlume Games는 단독 재량에 따라 어떤 이유로든 앱 사용 라이선스를 종료할 수 있습니다.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> 준거법</h2>
+        <p>본 약관은 터키 공화국의 법률에 따릅니다. 모든 분쟁에 대해 터키 법원이 관할권을 가집니다. Google Play 스토어를 통해 앱에 액세스하는 경우 Google Play 이용약관도 적용됩니다.
+        </p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> Google Play 약관</h2>
+        <p><a href="https://play.google.com/intl/ko/about/play-terms/"
+            target="_blank">play.google.com/intl/ko/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> 연락처</h2>
+        <p><strong>Hexlume Games</strong><br>이메일: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a>
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">📬</span> Contact</h2>
-    <p><strong>Hexlume Games</strong><br>
-    Email: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+  <!-- العربية -->
+  <div id="lang-ar" class="lang-content">
+    <div class="container">
+      <div class="section">
+        <h2><span class="icon">📄</span> القبول</h2>
+        <p>تحكم شروط الخدمة هذه استخدامك لتطبيق <strong>Flow Sort: Color Tube Puzzle</strong> (معرّف التطبيق:
+          <code>com.hexlumegames.flowsort</code>)، المطور بواسطة <strong>Hexlume Games</strong>.</p>
+        <p><strong>آخر تحديث:</strong> 26 مايو 2026</p>
+        <div class="highlight">بتحميل التطبيق أو استخدامه، فإنك تؤكد أنك قد قرأت هذه الشروط وتوافق عليها. إذا كنت لا
+          توافق، فالرجاء عدم استخدام التطبيق.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🎮</span> الترخيص والاستخدام المسموح به</h2>
+        <p>تمنحك Hexlume Games ترخيصًا محدودًا وغير حصري وغير قابل للتحويل لاستخدام هذا التطبيق للأغراض الشخصية غير
+          التجارية. بموجب هذا الترخيص، <strong>لا يجوز لك</strong>:</p>
+        <ul>
+          <li>نسخ التطبيق أو تعديله أو إنشاء أعمال مشتقة منه</li>
+          <li>الهندسة العكسية أو فك التجميع أو محاولة استخراج شفرة المصدر</li>
+          <li>توزيع أو بيع التطبيق لأي طرف ثالث</li>
+          <li>تأجير التطبيق أو تقديمه كخدمة</li>
+          <li>إزالة إشعارات حقوق النشر أو العلامات التجارية أو أي إشعارات ملكية أخرى</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🏆</span> الملكية الفكرية</h2>
+        <p>التطبيق وجميع محتوياته (آليات اللعبة، التصميم الجرافيكي، المؤثرات الصوتية، الموسيقى، الكود، النص، والمواد
+          الأخرى) مملوكة لـ <strong>Hexlume Games</strong> أو مرخصة لها. جميع الحقوق محفوظة.</p>
+        <p>"Flow Sort" و"Flow Sort: Color Tube Puzzle" و"Hexlume Games" هي علامات تجارية مسجلة أو قيد التسجيل ولا يجوز
+          استخدامها دون إذن كتابي مسبق.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📣</span> الإعلانات</h2>
+        <p>قد يعرض التطبيق إعلانات عبر Google AdMob بتنسيقات البانر والانتقالية والمكافآت. يتم تقديم هذه الإعلانات
+          بواسطة أطراف ثالثة؛ لا تتحمل Hexlume Games أي مسؤولية عن دقة أو أمان محتوى الإعلان.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🚫</span> السلوكيات المحظورة</h2>
+        <ul>
+          <li>التلاعب ببيانات اللعبة أو النقاط أو التقدم بطرق غير مصرح بها</li>
+          <li>استخدام البوتات أو النصوص البرمجية أو الأدوات الآلية لتعطيل التشغيل العادي</li>
+          <li>استخدام التطبيق لأي غرض غير قانوني</li>
+          <li>أي إجراء يؤثر سلبًا على تجربة المستخدمين الآخرين</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚠️</span> إخلاء المسؤولية عن الضمانات</h2>
+        <div class="warn">يتم تقديم التطبيق "كما هو". لا تقدم Hexlume Games أي ضمان بأن التطبيق سيكون دون انقطاع أو خالٍ
+          من الأخطاء أو مناسبًا لأي غرض معين. لا يتم استبعاد الضمانات الإلزامية بموجب قانون حماية المستهلك الساري بهذا
+          الإخلاء.</div>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔐</span> تحديد المسؤولية</h2>
+        <p>في أقصى مدى يسمح به القانون الساري، لا تكون Hexlume Games مسؤولة عن أي أضرار غير مباشرة أو عرضية أو خاصة أو
+          تبعية ناشئة عن استخدام التطبيق (بما في ذلك فقدان البيانات أو فقدان الإيرادات أو انقطاع العمل).</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">👶</span> متطلبات العمر</h2>
+        <p>التطبيق غير مخصص للأفراد الذين تقل أعمارهم عن 13 عامًا. يُنصح المستخدمون الذين تتراوح أعمارهم بين 13 و 18
+          عامًا باستخدام التطبيق تحت إشراف الوالدين أو الوصي.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔄</span> التغييرات والإنهاء</h2>
+        <p>تحتفظ Hexlume Games بالحق في تحديث هذه الشروط في أي وقت دون إشعار مسبق. سيتم دائمًا نشر الإصدار الحالي على
+          هذه الصفحة. يشكل الاستمرار في استخدام التطبيق قبولاً للشروط المحدثة.</p>
+        <p>يجوز لـ Hexlume Games، وفقًا لتقديرها الخاص، إنهاء ترخيصك لاستخدام التطبيق لأي سبب.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">⚖️</span> القانون الواجب التطبيق</h2>
+        <p>تخضع هذه الشروط لقوانين الجمهورية التركية. تكون المحاكم التركية مختصة بأي نزاعات. عند الوصول إلى التطبيق عبر
+          متجر Google Play، تنطبق أيضًا شروط خدمة Google Play.</p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">🔗</span> شروط Google Play</h2>
+        <p><a href="https://play.google.com/intl/ar/about/play-terms/"
+            target="_blank">play.google.com/intl/ar/about/play-terms/</a></p>
+      </div>
+      <div class="section">
+        <h2><span class="icon">📬</span> اتصل بنا</h2>
+        <p><strong>Hexlume Games</strong><br>البريد الإلكتروني: <a
+            href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      </div>
+    </div>
   </div>
 
-</div>
-</div>
+  <script>
+    (function () {
+      const contents = document.querySelectorAll('.lang-content');
+      const langLinks = document.querySelectorAll('.lang-switch a');
+      const htmlTag = document.documentElement;
+      const rtlLangs = ['ar'];
 
+      function setActiveLang(langCode) {
+        // Hide all language content divs
+        contents.forEach(div => div.classList.remove('active'));
+        const activeDiv = document.getElementById(`lang-${langCode}`);
+        if (activeDiv) activeDiv.classList.add('active');
+
+        // Update active class on links
+        langLinks.forEach(link => {
+          const linkLang = link.getAttribute('data-lang');
+          if (linkLang === langCode) link.classList.add('active');
+          else link.classList.remove('active');
+        });
+
+        // Set RTL if needed
+        const isRtl = rtlLangs.includes(langCode);
+        htmlTag.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
+        htmlTag.setAttribute('lang', langCode);
+
+        // Optional: store preference
+        try { localStorage.setItem('terms_lang_pref', langCode); } catch (e) { }
+      }
+
+      function getHashLang() {
+        let hash = window.location.hash.substring(1);
+        if (hash && contents.some(el => el.id === `lang-${hash}`)) return hash;
+        return null;
+      }
+
+      function initLang() {
+        let preferred = getHashLang();
+        if (!preferred) {
+          try {
+            const saved = localStorage.getItem('terms_lang_pref');
+            if (saved && document.getElementById(`lang-${saved}`)) preferred = saved;
+          } catch (e) { }
+        }
+        if (!preferred) {
+          // Try browser language
+          const browserLang = (navigator.language || 'en').toLowerCase().split('-')[0];
+          const supported = ['tr', 'en', 'de', 'es', 'fr', 'pt', 'ru', 'ja', 'ko', 'ar'];
+          if (supported.includes(browserLang)) preferred = browserLang;
+          else preferred = 'en';
+        }
+        setActiveLang(preferred);
+        if (window.location.hash !== `#${preferred}`) window.location.hash = preferred;
+      }
+
+      langLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const lang = link.getAttribute('data-lang');
+          if (!lang) return;
+          window.location.hash = lang;
+          setActiveLang(lang);
+        });
+      });
+
+      window.addEventListener('hashchange', () => {
+        const hashLang = getHashLang();
+        if (hashLang) setActiveLang(hashLang);
+      });
+
+      initLang();
+    })();
+  </script>
 </body>
+
 </html>
