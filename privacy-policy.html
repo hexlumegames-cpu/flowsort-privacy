@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,15 @@
       --text2: #9999cc;
       --success: #3ddc84;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -24,12 +33,14 @@
       line-height: 1.75;
       padding: 0 0 60px;
     }
+
     header {
       background: linear-gradient(135deg, var(--bg2) 0%, var(--panel) 100%);
       border-bottom: 2px solid var(--accent);
       padding: 36px 24px 28px;
       text-align: center;
     }
+
     header .brand {
       font-size: 13px;
       text-transform: uppercase;
@@ -37,6 +48,7 @@
       color: var(--accent2);
       margin-bottom: 10px;
     }
+
     header h1 {
       font-size: clamp(22px, 5vw, 32px);
       font-weight: 800;
@@ -46,38 +58,65 @@
       background-clip: text;
       margin-bottom: 8px;
     }
+
     header .meta {
       font-size: 13px;
       color: var(--text2);
     }
-    .lang-switch {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 18px 24px;
+
+    /* ── Language Switcher ── */
+    .lang-bar {
       background: var(--bg2);
       border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
-    .lang-switch a {
+
+    .lang-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .lang-inner {
+      display: flex;
+      gap: 8px;
+      min-width: max-content;
+      justify-content: center;
+    }
+
+    .lang-btn {
+      background: transparent;
       color: var(--text2);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 20px;
       border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
       transition: all .2s;
+      font-family: inherit;
     }
-    .lang-switch a:hover, .lang-switch a.active {
+
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .lang-btn.active {
       background: var(--accent);
       border-color: var(--accent);
       color: #fff;
     }
+
+    /* ── Content ── */
     .container {
       max-width: 780px;
       margin: 0 auto;
       padding: 0 20px;
     }
+
     .section {
       background: var(--panel);
       border: 1px solid var(--border);
@@ -85,6 +124,7 @@
       padding: 28px 28px 24px;
       margin-top: 24px;
     }
+
     .section h2 {
       font-size: 17px;
       font-weight: 700;
@@ -96,11 +136,37 @@
       align-items: center;
       gap: 10px;
     }
-    .section h2 .icon { font-size: 20px; }
-    .section p, .section li { font-size: 14.5px; color: var(--text2); margin-bottom: 10px; }
-    .section ul, .section ol { padding-left: 22px; }
-    .section li { margin-bottom: 8px; }
-    .section a { color: var(--accent2); }
+
+    .section h2 .icon {
+      font-size: 20px;
+    }
+
+    .section p,
+    .section li {
+      font-size: 14.5px;
+      color: var(--text2);
+      margin-bottom: 10px;
+    }
+
+    .section ul,
+    .section ol {
+      padding-left: 22px;
+    }
+
+    [dir="rtl"] .section ul,
+    [dir="rtl"] .section ol {
+      padding-left: 0;
+      padding-right: 22px;
+    }
+
+    .section li {
+      margin-bottom: 8px;
+    }
+
+    .section a {
+      color: var(--accent2);
+    }
+
     .highlight {
       background: rgba(124, 92, 252, 0.12);
       border-left: 3px solid var(--accent);
@@ -110,251 +176,492 @@
       font-size: 14px;
       color: var(--text);
     }
-    .badge {
-      display: inline-block;
-      background: rgba(61, 220, 132, 0.15);
-      color: var(--success);
-      border: 1px solid rgba(61, 220, 132, 0.3);
-      border-radius: 20px;
-      padding: 3px 12px;
-      font-size: 12px;
-      font-weight: 700;
-      margin-left: 8px;
-    }
-    .divider {
-      border: none;
-      border-top: 2px dashed var(--border);
-      margin: 48px 0 12px;
-    }
-    .section-label {
-      text-align: center;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: var(--accent2);
-      margin-bottom: 4px;
-    }
 
-    /* ===== ENGLISH SECTION ===== */
-    #en .section h2 { color: var(--accent2); }
-    #en .section h2 .icon { color: var(--accent); }
+    [dir="rtl"] .highlight {
+      border-left: none;
+      border-right: 3px solid var(--accent);
+      border-radius: 8px 0 0 8px;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="brand">Hexlume Games</div>
-  <h1>Privacy Policy</h1>
-  <div class="meta">Flow Sort: Color Tube Puzzle &nbsp;|&nbsp; com.hexlumegames.flowsort</div>
-</header>
+  <header>
+    <div class="brand">Hexlume Games</div>
+    <h1 id="h-title">Privacy Policy</h1>
+    <div class="meta">Flow Sort: Color Tube Puzzle &nbsp;|&nbsp; com.hexlumegames.flowsort</div>
+  </header>
 
-<div class="lang-switch">
-  <a href="#tr" class="active">🇹🇷 Türkçe</a>
-  <a href="#en">🇬🇧 English</a>
-</div>
-
-<!-- =========================================================
-     TÜRKÇE
-     ========================================================= -->
-<div id="tr">
-<div class="container">
-
-  <div class="section">
-    <h2><span class="icon">📋</span> Genel Bakış</h2>
-    <p>Bu Gizlilik Politikası, <strong>Hexlume Games</strong> tarafından geliştirilen <strong>Flow Sort: Color Tube Puzzle</strong> mobil uygulamasının (uygulama kimliği: <code>com.hexlumegames.flowsort</code>) kişisel verileri nasıl işlediğini açıklamaktadır.</p>
-    <p><strong>Son güncelleme:</strong> 26 Mayıs 2026</p>
-    <div class="highlight">
-      Flow Sort, doğrudan herhangi bir kişisel bilgi toplamaz. Ancak uygulama içi reklamlar ve analitik hizmetler üçüncü taraf veri işleme süreçleri içerebilir.
-    </div>
+  <div class="lang-bar">
+    <div class="lang-inner" id="lang-bar"></div>
   </div>
 
-  <div class="section">
-    <h2><span class="icon">👤</span> Topladığımız Bilgiler</h2>
-    <p>Uygulama aşağıdaki verileri <strong>doğrudan</strong> toplamaz veya sunucularımıza iletmez:</p>
-    <ul>
-      <li>Ad, soyad, e-posta adresi veya telefon numarası</li>
-      <li>Konum bilgisi</li>
-      <li>Fotoğraf, kamera veya mikrofon verileri</li>
-      <li>Kişiler veya takvim bilgileri</li>
-    </ul>
-    <p>Cihazınızda yerel olarak saklanan veriler yalnızca şunlardır:</p>
-    <ul>
-      <li>Oyun ilerleme durumu (tamamlanan bölümler, puan)</li>
-      <li>Uygulama ayarları (ses, müzik tercihleri)</li>
-      <li>Reklam onay tercihi (UMP/GDPR)</li>
-    </ul>
-  </div>
+  <div class="container" id="content"></div>
 
-  <div class="section">
-    <h2><span class="icon">📣</span> Reklam Hizmetleri – Google AdMob</h2>
-    <p>Uygulama, <strong>Google AdMob</strong> (Google LLC) reklam platformunu kullanmaktadır. AdMob; reklam performansını ölçmek, kişiselleştirilmiş reklam sunmak ve dolandırıcılığı önlemek amacıyla aşağıdaki verileri toplayabilir:</p>
-    <ul>
-      <li>Reklam tanımlayıcısı (GAID / Android Advertising ID)</li>
-      <li>IP adresi ve yaklaşık konum</li>
-      <li>Uygulama kullanım istatistikleri ve etkileşim verileri</li>
-      <li>Cihaz bilgileri (model, işletim sistemi sürümü)</li>
-    </ul>
-    <p>Google'ın gizlilik politikası için: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
-    <p>Reklam tercihlerinizi yönetmek için: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a></p>
-  </div>
+  <script>
+    // ── Translations ───────────────────────────────────────────────────────────
+    const LANGS = ['tr', 'en', 'de', 'es', 'fr', 'pt', 'ru', 'ja', 'ko', 'ar'];
+    const LANG_FLAGS = { tr: '🇹🇷', en: '🇬🇧', de: '🇩🇪', es: '🇪🇸', fr: '🇫🇷', pt: '🇧🇷', ru: '🇷🇺', ja: '🇯🇵', ko: '🇰🇷', ar: '🇸🇦' };
+    const LANG_NAMES = { tr: 'Türkçe', en: 'English', de: 'Deutsch', es: 'Español', fr: 'Français', pt: 'Português', ru: 'Русский', ja: '日本語', ko: '한국어', ar: 'العربية' };
+    const RTL = ['ar'];
 
-  <div class="section">
-    <h2><span class="icon">🌍</span> GDPR & Kullanıcı Onayı</h2>
-    <p>Avrupa Ekonomik Alanı (AEA), Birleşik Krallık veya İsviçre'de bulunan kullanıcılara, uygulamayı ilk kez açtıklarında Google'ın <strong>Kullanıcı Mesaj Platformu (UMP)</strong> aracılığıyla reklam kişiselleştirme için onay istenir.</p>
-    <ul>
-      <li>Onayınızı istediğiniz zaman geri alabilirsiniz.</li>
-      <li>Reklam kişiselleştirmeyi reddetseniz bile bağlamsal reklamlar gösterilmeye devam edebilir.</li>
-      <li>Onay tercihiniz yalnızca cihazınızda yerel olarak saklanır.</li>
-    </ul>
-  </div>
+    const T = {
 
-  <div class="section">
-    <h2><span class="icon">🔒</span> Veri Güvenliği</h2>
-    <p>Tüm oyun verileri cihazınızda yerel olarak saklanır; sunucularımıza iletilmez. Üçüncü taraf hizmet sağlayıcılar (Google AdMob) kendi güvenlik standartlarına sahiptir. Uygulama, karışık içerik (HTTP) bağlantılarına izin vermez; yalnızca HTTPS kullanılır.</p>
-  </div>
+      page_title: {
+        tr: 'Gizlilik Politikası', en: 'Privacy Policy', de: 'Datenschutzerklärung',
+        es: 'Política de Privacidad', fr: 'Politique de Confidentialité', pt: 'Política de Privacidade',
+        ru: 'Политика конфиденциальности', ja: 'プライバシーポリシー', ko: '개인정보 처리방침', ar: 'سياسة الخصوصية'
+      },
+      last_updated: {
+        tr: 'Son güncelleme: 26 Mayıs 2026', en: 'Last updated: May 26, 2026', de: 'Letzte Aktualisierung: 26. Mai 2026',
+        es: 'Última actualización: 26 de mayo de 2026', fr: 'Dernière mise à jour: 26 mai 2026', pt: 'Última atualização: 26 de maio de 2026',
+        ru: 'Последнее обновление: 26 мая 2026 г.', ja: '最終更新日：2026年5月26日', ko: '마지막 업데이트: 2026년 5월 26일', ar: 'آخر تحديث: 26 مايو 2026'
+      },
 
-  <div class="section">
-    <h2><span class="icon">👶</span> Çocukların Gizliliği</h2>
-    <p>Flow Sort, 13 yaşın altındaki çocuklara yönelik değildir ve bu yaş grubundan bilerek veri toplamaz. Uygulamanın çocuğunuz tarafından kullanıldığını düşünüyorsanız lütfen bizimle iletişime geçin.</p>
-    <div class="highlight">
-      Uygulama, Google Play'de "Herkes İçin" kategorisinde yayımlanmaktadır. Reklam içerikleri <strong>çocuklara yönelik kişiselleştirilmiş reklam</strong> içermez.
-    </div>
-  </div>
+      // Section titles
+      s_overview_title: {
+        tr: 'Genel Bakış', en: 'Overview', de: 'Überblick',
+        es: 'Descripción General', fr: 'Aperçu', pt: 'Visão Geral',
+        ru: 'Обзор', ja: '概要', ko: '개요', ar: 'نظرة عامة'
+      },
+      s_collect_title: {
+        tr: 'Topladığımız Bilgiler', en: 'Information We Collect', de: 'Erhobene Daten',
+        es: 'Información que Recopilamos', fr: 'Informations que Nous Collectons', pt: 'Informações que Coletamos',
+        ru: 'Собираемые данные', ja: '収集する情報', ko: '수집하는 정보', ar: 'المعلومات التي نجمعها'
+      },
+      s_ads_title: {
+        tr: 'Reklam Hizmetleri – Google AdMob', en: 'Advertising – Google AdMob', de: 'Werbung – Google AdMob',
+        es: 'Publicidad – Google AdMob', fr: 'Publicité – Google AdMob', pt: 'Publicidade – Google AdMob',
+        ru: 'Реклама – Google AdMob', ja: '広告 – Google AdMob', ko: '광고 – Google AdMob', ar: 'الإعلانات – Google AdMob'
+      },
+      s_gdpr_title: {
+        tr: 'GDPR & Kullanıcı Onayı', en: 'GDPR & User Consent', de: 'DSGVO & Nutzereinwilligung',
+        es: 'RGPD y Consentimiento', fr: 'RGPD et Consentement', pt: 'LGPD & Consentimento',
+        ru: 'GDPR и согласие пользователя', ja: 'GDPR・ユーザー同意', ko: 'GDPR 및 사용자 동의', ar: 'اللائحة العامة لحماية البيانات والموافقة'
+      },
+      s_security_title: {
+        tr: 'Veri Güvenliği', en: 'Data Security', de: 'Datensicherheit',
+        es: 'Seguridad de Datos', fr: 'Sécurité des Données', pt: 'Segurança de Dados',
+        ru: 'Безопасность данных', ja: 'データセキュリティ', ko: '데이터 보안', ar: 'أمان البيانات'
+      },
+      s_children_title: {
+        tr: 'Çocukların Gizliliği', en: "Children's Privacy", de: 'Datenschutz für Kinder',
+        es: 'Privacidad de Menores', fr: 'Confidentialité des Enfants', pt: 'Privacidade das Crianças',
+        ru: 'Конфиденциальность детей', ja: '子どものプライバシー', ko: '아동 개인정보', ar: 'خصوصية الأطفال'
+      },
+      s_rights_title: {
+        tr: 'Kullanıcı Hakları', en: 'Your Rights', de: 'Ihre Rechte',
+        es: 'Sus Derechos', fr: 'Vos Droits', pt: 'Seus Direitos',
+        ru: 'Ваши права', ja: 'ユーザーの権利', ko: '이용자 권리', ar: 'حقوقك'
+      },
+      s_links_title: {
+        tr: 'Üçüncü Taraf Bağlantılar', en: 'Third-Party Links', de: 'Links zu Drittanbietern',
+        es: 'Enlaces de Terceros', fr: 'Liens Tiers', pt: 'Links de Terceiros',
+        ru: 'Ссылки на третьи стороны', ja: 'サードパーティリンク', ko: '제3자 링크', ar: 'روابط طرف ثالث'
+      },
+      s_changes_title: {
+        tr: 'Politika Değişiklikleri', en: 'Policy Changes', de: 'Änderungen der Richtlinie',
+        es: 'Cambios en la Política', fr: 'Modifications de la Politique', pt: 'Alterações na Política',
+        ru: 'Изменения политики', ja: 'ポリシーの変更', ko: '정책 변경', ar: 'تغييرات السياسة'
+      },
+      s_contact_title: {
+        tr: 'İletişim', en: 'Contact', de: 'Kontakt',
+        es: 'Contacto', fr: 'Contact', pt: 'Contato',
+        ru: 'Контакты', ja: 'お問い合わせ', ko: '문의', ar: 'اتصل بنا'
+      },
 
-  <div class="section">
-    <h2><span class="icon">📜</span> Kullanıcı Hakları</h2>
-    <p>GDPR ve KVKK kapsamında aşağıdaki haklara sahipsiniz:</p>
-    <ul>
-      <li>Hakkınızdaki verilere erişim ve bunların düzeltilmesini talep etme</li>
-      <li>Kişisel verilerinizin silinmesini talep etme</li>
-      <li>Veri işlemeye itiraz etme</li>
-      <li>Reklam onayınızı geri alma</li>
-    </ul>
-    <p>Talepleriniz için: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
-    <p>Oyun verilerini silmek için uygulamayı cihazınızdan kaldırmanız yeterlidir.</p>
-  </div>
+      // Overview section
+      overview_p1: {
+        tr: 'Bu Gizlilik Politikası, <strong>Hexlume Games</strong> tarafından geliştirilen <strong>Flow Sort: Color Tube Puzzle</strong> mobil uygulamasının (uygulama kimliği: <code>com.hexlumegames.flowsort</code>) kişisel verileri nasıl işlediğini açıklamaktadır.',
+        en: 'This Privacy Policy describes how <strong>Hexlume Games</strong> handles personal data in the mobile application <strong>Flow Sort: Color Tube Puzzle</strong> (app ID: <code>com.hexlumegames.flowsort</code>).',
+        de: 'Diese Datenschutzerklärung beschreibt, wie <strong>Hexlume Games</strong> personenbezogene Daten in der mobilen Anwendung <strong>Flow Sort: Color Tube Puzzle</strong> (App-ID: <code>com.hexlumegames.flowsort</code>) verarbeitet.',
+        es: 'Esta Política de Privacidad describe cómo <strong>Hexlume Games</strong> gestiona los datos personales en la aplicación móvil <strong>Flow Sort: Color Tube Puzzle</strong> (ID de app: <code>com.hexlumegames.flowsort</code>).',
+        fr: 'Cette Politique de Confidentialité décrit comment <strong>Hexlume Games</strong> gère les données personnelles dans l\'application mobile <strong>Flow Sort: Color Tube Puzzle</strong> (ID: <code>com.hexlumegames.flowsort</code>).',
+        pt: 'Esta Política de Privacidade descreve como a <strong>Hexlume Games</strong> lida com dados pessoais no aplicativo móvel <strong>Flow Sort: Color Tube Puzzle</strong> (ID do app: <code>com.hexlumegames.flowsort</code>).',
+        ru: 'Данная Политика конфиденциальности описывает, как <strong>Hexlume Games</strong> обрабатывает персональные данные в мобильном приложении <strong>Flow Sort: Color Tube Puzzle</strong> (ID приложения: <code>com.hexlumegames.flowsort</code>).',
+        ja: 'このプライバシーポリシーは、<strong>Hexlume Games</strong> が開発するモバイルアプリ <strong>Flow Sort: Color Tube Puzzle</strong>（アプリID: <code>com.hexlumegames.flowsort</code>）における個人データの取り扱いを説明します。',
+        ko: '본 개인정보 처리방침은 <strong>Hexlume Games</strong>가 개발한 모바일 앱 <strong>Flow Sort: Color Tube Puzzle</strong>(앱 ID: <code>com.hexlumegames.flowsort</code>)에서 개인 데이터를 처리하는 방식을 설명합니다.',
+        ar: 'تصف سياسة الخصوصية هذه كيفية تعامل <strong>Hexlume Games</strong> مع البيانات الشخصية في تطبيق الهاتف المحمول <strong>Flow Sort: Color Tube Puzzle</strong> (معرّف التطبيق: <code>com.hexlumegames.flowsort</code>).'
+      },
+      overview_highlight: {
+        tr: 'Flow Sort, doğrudan herhangi bir kişisel bilgi toplamaz. Ancak uygulama içi reklamlar ve analitik hizmetler üçüncü taraf veri işleme süreçleri içerebilir.',
+        en: 'Flow Sort does not directly collect any personal information. However, in-app advertising and analytics services may involve third-party data processing.',
+        de: 'Flow Sort erhebt keine personenbezogenen Daten direkt. In-App-Werbung und Analysedienste können jedoch Datenverarbeitungen durch Dritte beinhalten.',
+        es: 'Flow Sort no recopila directamente ningún dato personal. Sin embargo, los servicios de publicidad y análisis dentro de la app pueden implicar el procesamiento de datos por terceros.',
+        fr: "Flow Sort ne collecte directement aucune information personnelle. Cependant, les services publicitaires et analytiques intégrés peuvent impliquer des traitements de données par des tiers.",
+        pt: 'O Flow Sort não coleta diretamente nenhuma informação pessoal. No entanto, os serviços de publicidade e análise no app podem envolver processamento de dados por terceiros.',
+        ru: 'Flow Sort не собирает персональные данные напрямую. Однако внутренняя реклама и аналитические сервисы могут предполагать обработку данных третьими сторонами.',
+        ja: 'Flow Sortは個人情報を直接収集しません。ただし、アプリ内広告や分析サービスにおいて、サードパーティによるデータ処理が行われる場合があります。',
+        ko: 'Flow Sort는 개인 정보를 직접 수집하지 않습니다. 다만 앱 내 광고 및 분석 서비스는 제3자 데이터 처리를 포함할 수 있습니다.',
+        ar: 'لا يجمع Flow Sort أي معلومات شخصية مباشرةً. ومع ذلك، قد تتضمن خدمات الإعلانات داخل التطبيق والتحليلات معالجةً للبيانات من قِبَل أطراف ثالثة.'
+      },
 
-  <div class="section">
-    <h2><span class="icon">🔗</span> Üçüncü Taraf Bağlantılar</h2>
-    <p>Uygulama, Hexlume Games'in diğer oyunlarına yönlendiren bağlantılar içerebilir. Bu bağlantılar Google Play Store sayfalarına yönlendirir; Google'ın gizlilik koşulları geçerlidir.</p>
-  </div>
+      // Collect section
+      collect_no_title: {
+        tr: 'Uygulama aşağıdaki verileri <strong>doğrudan</strong> toplamaz veya sunucularımıza iletmez:',
+        en: 'The app does <strong>not</strong> directly collect or transmit the following to our servers:',
+        de: 'Die App erhebt folgende Daten <strong>nicht</strong> direkt und überträgt sie nicht an unsere Server:',
+        es: 'La app <strong>no</strong> recopila ni transmite directamente lo siguiente a nuestros servidores:',
+        fr: "L'application ne collecte <strong>pas</strong> directement les données suivantes et ne les transmet pas à nos serveurs :",
+        pt: 'O aplicativo <strong>não</strong> coleta ou transmite diretamente os seguintes dados para nossos servidores:',
+        ru: 'Приложение <strong>не</strong> собирает и не передаёт на наши серверы следующие данные:',
+        ja: '本アプリは以下のデータをサーバーに送信・収集<strong>しません</strong>：',
+        ko: '앱은 다음 데이터를 서버에 직접 수집하거나 전송<strong>하지 않습니다</strong>:',
+        ar: '<strong>لا</strong> يجمع التطبيق أو يرسل البيانات التالية إلى خوادمنا مباشرةً:'
+      },
+      collect_no_items: {
+        tr: ['Ad, soyad, e-posta adresi veya telefon numarası', 'Konum bilgisi', 'Fotoğraf, kamera veya mikrofon verileri', 'Kişiler veya takvim bilgileri'],
+        en: ['Name, email address, or phone number', 'Precise location data', 'Photos, camera, or microphone data', 'Contacts or calendar information'],
+        de: ['Name, E-Mail-Adresse oder Telefonnummer', 'Genaue Standortdaten', 'Fotos, Kamera- oder Mikrofondaten', 'Kontakte oder Kalenderinformationen'],
+        es: ['Nombre, correo electrónico o número de teléfono', 'Datos de ubicación exacta', 'Fotos, cámara o datos de micrófono', 'Contactos o información del calendario'],
+        fr: ['Nom, adresse e-mail ou numéro de téléphone', 'Données de localisation précises', 'Photos, caméra ou données du microphone', 'Contacts ou informations de calendrier'],
+        pt: ['Nome, e-mail ou número de telefone', 'Dados de localização precisos', 'Fotos, câmera ou dados de microfone', 'Contatos ou informações de calendário'],
+        ru: ['Имя, адрес электронной почты или номер телефона', 'Точные данные о местоположении', 'Фото, данные камеры или микрофона', 'Контакты или информация календаря'],
+        ja: ['氏名、メールアドレス、電話番号', '正確な位置情報', '写真、カメラ、マイクのデータ', '連絡先やカレンダー情報'],
+        ko: ['이름, 이메일 주소 또는 전화번호', '정확한 위치 데이터', '사진, 카메라 또는 마이크 데이터', '연락처 또는 캘린더 정보'],
+        ar: ['الاسم أو البريد الإلكتروني أو رقم الهاتف', 'بيانات الموقع الدقيق', 'بيانات الصور أو الكاميرا أو الميكروفون', 'جهات الاتصال أو معلومات التقويم']
+      },
+      collect_local_title: {
+        tr: 'Cihazınızda yerel olarak saklanan veriler yalnızca şunlardır:',
+        en: 'Data stored locally on your device includes only:',
+        de: 'Auf Ihrem Gerät lokal gespeicherte Daten umfassen nur:',
+        es: 'Los datos almacenados localmente en su dispositivo incluyen solo:',
+        fr: 'Les données stockées localement sur votre appareil comprennent uniquement :',
+        pt: 'Os dados armazenados localmente no seu dispositivo incluem apenas:',
+        ru: 'Данные, хранящиеся локально на вашем устройстве, включают только:',
+        ja: '端末にローカル保存されるデータは以下のみです：',
+        ko: '기기에 로컬 저장되는 데이터는 다음만 해당됩니다:',
+        ar: 'تقتصر البيانات المخزنة محليًا على جهازك على:'
+      },
+      collect_local_items: {
+        tr: ['Oyun ilerleme durumu (tamamlanan bölümler, puan)', 'Uygulama ayarları (ses, müzik tercihleri)', 'Reklam onay tercihi (UMP/GDPR)'],
+        en: ['Game progress (completed levels, score)', 'App settings (sound, music preferences)', 'Ad consent preference (UMP/GDPR)'],
+        de: ['Spielfortschritt (abgeschlossene Level, Punktestand)', 'App-Einstellungen (Ton, Musikpräferenzen)', 'Werbeeinwilligungspräferenz (UMP/DSGVO)'],
+        es: ['Progreso del juego (niveles completados, puntuación)', 'Ajustes de la app (sonido, preferencias de música)', 'Preferencia de consentimiento publicitario (UMP/RGPD)'],
+        fr: ['Progression du jeu (niveaux terminés, score)', 'Paramètres de l\'app (son, préférences musicales)', 'Préférence de consentement publicitaire (UMP/RGPD)'],
+        pt: ['Progresso do jogo (níveis concluídos, pontuação)', 'Configurações do app (som, preferências de música)', 'Preferência de consentimento de anúncios (UMP/LGPD)'],
+        ru: ['Прогресс в игре (пройденные уровни, счёт)', 'Настройки приложения (звук, музыкальные предпочтения)', 'Предпочтения согласия на рекламу (UMP/GDPR)'],
+        ja: ['ゲームの進行状況（クリア済みレベル、スコア）', 'アプリ設定（サウンド、音楽設定）', '広告同意設定（UMP/GDPR）'],
+        ko: ['게임 진행 상황 (완료한 레벨, 점수)', '앱 설정 (사운드, 음악 설정)', '광고 동의 설정 (UMP/GDPR)'],
+        ar: ['تقدم اللعبة (المستويات المكتملة، النقاط)', 'إعدادات التطبيق (الصوت، تفضيلات الموسيقى)', 'تفضيل موافقة الإعلانات (UMP/GDPR)']
+      },
 
-  <div class="section">
-    <h2><span class="icon">✏️</span> Politika Değişiklikleri</h2>
-    <p>Bu politika zaman zaman güncellenebilir. Önemli değişikliklerde yeni sürümü bu sayfada yayımlayacağız. Uygulamayı kullanmaya devam etmeniz güncellenen politikayı kabul ettiğiniz anlamına gelir.</p>
-  </div>
+      // Ads section
+      ads_p1: {
+        tr: 'Uygulama, <strong>Google AdMob</strong> (Google LLC) reklam platformunu kullanmaktadır. AdMob; reklam performansını ölçmek, kişiselleştirilmiş reklam sunmak ve dolandırıcılığı önlemek amacıyla aşağıdaki verileri toplayabilir:',
+        en: 'The app uses <strong>Google AdMob</strong> (Google LLC) to serve advertisements. AdMob may collect the following to measure ad performance, deliver personalized ads, and prevent fraud:',
+        de: 'Die App verwendet <strong>Google AdMob</strong> (Google LLC) zur Schaltung von Werbeanzeigen. AdMob kann folgende Daten erheben, um Anzeigenleistung zu messen, personalisierte Werbung anzuzeigen und Betrug zu verhindern:',
+        es: 'La app utiliza <strong>Google AdMob</strong> (Google LLC) para mostrar anuncios. AdMob puede recopilar los siguientes datos para medir el rendimiento publicitario, ofrecer anuncios personalizados y prevenir fraudes:',
+        fr: "L'application utilise <strong>Google AdMob</strong> (Google LLC) pour diffuser des publicités. AdMob peut collecter les données suivantes pour mesurer les performances des annonces, diffuser des publicités personnalisées et prévenir la fraude :",
+        pt: 'O aplicativo usa o <strong>Google AdMob</strong> (Google LLC) para exibir anúncios. O AdMob pode coletar os seguintes dados para medir o desempenho dos anúncios, entregar anúncios personalizados e prevenir fraudes:',
+        ru: 'Приложение использует <strong>Google AdMob</strong> (Google LLC) для показа рекламы. AdMob может собирать следующие данные для оценки эффективности рекламы, показа персонализированной рекламы и предотвращения мошенничества:',
+        ja: '本アプリは広告配信に <strong>Google AdMob</strong>（Google LLC）を使用しています。AdMob は広告効果測定、パーソナライズ広告配信、不正防止のために以下のデータを収集する場合があります：',
+        ko: '앱은 광고 게재를 위해 <strong>Google AdMob</strong>(Google LLC)을 사용합니다. AdMob은 광고 성과 측정, 맞춤형 광고 제공 및 사기 방지를 위해 다음 데이터를 수집할 수 있습니다:',
+        ar: 'يستخدم التطبيق <strong>Google AdMob</strong> (Google LLC) لعرض الإعلانات. قد يجمع AdMob البيانات التالية لقياس أداء الإعلانات وتقديم إعلانات مخصصة ومنع الاحتيال:'
+      },
+      ads_items: {
+        tr: ['Reklam tanımlayıcısı (GAID / Android Advertising ID)', 'IP adresi ve yaklaşık konum', 'Uygulama kullanım istatistikleri ve etkileşim verileri', 'Cihaz bilgileri (model, işletim sistemi sürümü)'],
+        en: ['Advertising identifier (GAID / Android Advertising ID)', 'IP address and approximate location', 'App usage statistics and interaction data', 'Device information (model, OS version)'],
+        de: ['Werbekennung (GAID / Android Advertising ID)', 'IP-Adresse und ungefährer Standort', 'App-Nutzungsstatistiken und Interaktionsdaten', 'Geräteinformationen (Modell, Betriebssystemversion)'],
+        es: ['Identificador publicitario (GAID / Android Advertising ID)', 'Dirección IP y ubicación aproximada', 'Estadísticas de uso de la app y datos de interacción', 'Información del dispositivo (modelo, versión del SO)'],
+        fr: ['Identifiant publicitaire (GAID / Android Advertising ID)', 'Adresse IP et localisation approximative', 'Statistiques d\'utilisation et données d\'interaction', 'Informations sur l\'appareil (modèle, version du système d\'exploitation)'],
+        pt: ['Identificador de publicidade (GAID / Android Advertising ID)', 'Endereço IP e localização aproximada', 'Estatísticas de uso do app e dados de interação', 'Informações do dispositivo (modelo, versão do SO)'],
+        ru: ['Рекламный идентификатор (GAID / Android Advertising ID)', 'IP-адрес и приблизительное местоположение', 'Статистика использования приложения и данные взаимодействия', 'Информация об устройстве (модель, версия ОС)'],
+        ja: ['広告識別子（GAID / Android Advertising ID）', 'IPアドレスおよびおおよその位置', 'アプリ使用統計およびインタラクションデータ', '端末情報（機種、OSバージョン）'],
+        ko: ['광고 식별자 (GAID / Android Advertising ID)', 'IP 주소 및 대략적인 위치', '앱 사용 통계 및 상호작용 데이터', '기기 정보 (모델, OS 버전)'],
+        ar: ['معرّف الإعلانات (GAID / Android Advertising ID)', 'عنوان IP والموقع التقريبي', 'إحصائيات استخدام التطبيق وبيانات التفاعل', 'معلومات الجهاز (الطراز، إصدار نظام التشغيل)']
+      },
+      ads_links: {
+        tr: ['Google Gizlilik Politikası için: ', 'Reklam tercihlerinizi yönetmek için: '],
+        en: ['Google Privacy Policy: ', 'Manage your ad preferences: '],
+        de: ['Google-Datenschutzrichtlinie: ', 'Anzeigeneinstellungen verwalten: '],
+        es: ['Política de privacidad de Google: ', 'Gestionar preferencias de anuncios: '],
+        fr: ['Politique de confidentialité Google : ', 'Gérer vos préférences publicitaires : '],
+        pt: ['Política de privacidade do Google: ', 'Gerenciar preferências de anúncios: '],
+        ru: ['Политика конфиденциальности Google: ', 'Управление настройками рекламы: '],
+        ja: ['Googleプライバシーポリシー：', '広告設定の管理：'],
+        ko: ['Google 개인정보 처리방침: ', '광고 기본 설정 관리: '],
+        ar: ['سياسة خصوصية Google: ', 'إدارة تفضيلات الإعلانات: ']
+      },
 
-  <div class="section">
-    <h2><span class="icon">📬</span> İletişim</h2>
-    <p><strong>Hexlume Games</strong><br>
-    E-posta: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
-  </div>
+      // GDPR section
+      gdpr_p1: {
+        tr: 'Avrupa Ekonomik Alanı (AEA), Birleşik Krallık veya İsviçre\'de bulunan kullanıcılara, uygulamayı ilk kez açtıklarında Google\'ın <strong>Kullanıcı Mesaj Platformu (UMP)</strong> aracılığıyla reklam kişiselleştirme için onay istenir.',
+        en: 'Users in the European Economic Area (EEA), United Kingdom, or Switzerland will be shown a consent prompt for ad personalization via Google\'s <strong>User Messaging Platform (UMP)</strong> upon first launch.',
+        de: 'Nutzern im Europäischen Wirtschaftsraum (EWR), im Vereinigten Königreich oder in der Schweiz wird beim ersten Start eine Einwilligungsabfrage zur Anzeigenpersonalisierung über Googles <strong>User Messaging Platform (UMP)</strong> angezeigt.',
+        es: 'Los usuarios ubicados en el Espacio Económico Europeo (EEE), Reino Unido o Suiza verán una solicitud de consentimiento para la personalización de anuncios a través de la <strong>Plataforma de Mensajes de Usuario (UMP)</strong> de Google al primer inicio.',
+        fr: 'Les utilisateurs situés dans l\'Espace économique européen (EEE), au Royaume-Uni ou en Suisse verront une demande de consentement pour la personnalisation des annonces via la <strong>Plateforme de messagerie utilisateur (UMP)</strong> de Google au premier lancement.',
+        pt: 'Usuários na Área Econômica Europeia (AEE), Reino Unido ou Suíça verão uma solicitação de consentimento para personalização de anúncios por meio da <strong>Plataforma de Mensagens do Usuário (UMP)</strong> do Google no primeiro acesso.',
+        ru: 'Пользователям из Европейской экономической зоны (ЕЭЗ), Великобритании или Швейцарии при первом запуске будет показан запрос на согласие с персонализацией рекламы через <strong>Платформу пользовательских сообщений (UMP)</strong> Google.',
+        ja: '欧州経済領域（EEA）、英国、スイスのユーザーには、初回起動時にGoogleの<strong>ユーザーメッセージングプラットフォーム（UMP）</strong>を通じて広告パーソナライズへの同意が求められます。',
+        ko: '유럽 경제 지역(EEA), 영국 또는 스위스에 위치한 사용자에게는 첫 실행 시 Google의 <strong>사용자 메시징 플랫폼(UMP)</strong>을 통해 광고 맞춤화에 대한 동의 팝업이 표시됩니다.',
+        ar: 'سيُعرض على المستخدمين في المنطقة الاقتصادية الأوروبية والمملكة المتحدة وسويسرا مطالبة بالموافقة على تخصيص الإعلانات عبر <strong>منصة رسائل المستخدم (UMP)</strong> من Google عند أول تشغيل.'
+      },
+      gdpr_items: {
+        tr: ['Onayınızı istediğiniz zaman geri alabilirsiniz.', 'Reklam kişiselleştirmeyi reddetseniz bile bağlamsal reklamlar gösterilmeye devam edebilir.', 'Onay tercihiniz yalnızca cihazınızda yerel olarak saklanır.'],
+        en: ['You may withdraw your consent at any time.', 'If you decline personalization, contextual ads may still be shown.', 'Your consent preference is stored locally on your device only.'],
+        de: ['Sie können Ihre Einwilligung jederzeit widerrufen.', 'Wenn Sie die Personalisierung ablehnen, können kontextbezogene Anzeigen weiterhin angezeigt werden.', 'Ihre Einwilligungspräferenz wird nur lokal auf Ihrem Gerät gespeichert.'],
+        es: ['Puede retirar su consentimiento en cualquier momento.', 'Si rechaza la personalización, es posible que se sigan mostrando anuncios contextuales.', 'Su preferencia de consentimiento se almacena solo localmente en su dispositivo.'],
+        fr: ['Vous pouvez retirer votre consentement à tout moment.', 'Si vous refusez la personnalisation, des annonces contextuelles peuvent toujours être affichées.', 'Votre préférence de consentement est stockée uniquement en local sur votre appareil.'],
+        pt: ['Você pode retirar seu consentimento a qualquer momento.', 'Se você recusar a personalização, ainda podem ser exibidos anúncios contextuais.', 'Sua preferência de consentimento é armazenada apenas localmente no seu dispositivo.'],
+        ru: ['Вы можете отозвать согласие в любое время.', 'Если вы откажетесь от персонализации, контекстная реклама может по-прежнему показываться.', 'Ваши настройки согласия хранятся только локально на устройстве.'],
+        ja: ['同意はいつでも撤回できます。', 'パーソナライズを拒否した場合でも、コンテキスト広告が表示されることがあります。', '同意設定は端末にのみローカル保存されます。'],
+        ko: ['동의는 언제든지 철회할 수 있습니다.', '맞춤화를 거부해도 상황에 맞는 광고가 계속 표시될 수 있습니다.', '동의 설정은 기기에만 로컬 저장됩니다.'],
+        ar: ['يمكنك سحب موافقتك في أي وقت.', 'إذا رفضت التخصيص، قد تظل الإعلانات السياقية تُعرض.', 'تُخزَّن تفضيلات موافقتك محليًا على جهازك فقط.']
+      },
 
-</div>
-</div>
+      // Security section
+      security_p: {
+        tr: 'Tüm oyun verileri cihazınızda yerel olarak saklanır; sunucularımıza iletilmez. Üçüncü taraf hizmet sağlayıcılar (Google AdMob) kendi güvenlik standartlarına sahiptir. Uygulama, karışık içerik (HTTP) bağlantılarına izin vermez; yalnızca HTTPS kullanılır.',
+        en: 'All game data is stored locally on your device and is not transmitted to our servers. Third-party providers (Google AdMob) maintain their own security standards. The app does not allow mixed content (HTTP) connections; only HTTPS is used.',
+        de: 'Alle Spieldaten werden lokal auf Ihrem Gerät gespeichert und nicht an unsere Server übertragen. Drittanbieter (Google AdMob) unterhalten ihre eigenen Sicherheitsstandards. Die App erlaubt keine gemischten Inhalte (HTTP); es wird ausschließlich HTTPS verwendet.',
+        es: 'Todos los datos del juego se almacenan localmente en su dispositivo y no se transmiten a nuestros servidores. Los proveedores externos (Google AdMob) mantienen sus propios estándares de seguridad. La app no permite conexiones de contenido mixto (HTTP); solo se usa HTTPS.',
+        fr: "Toutes les données du jeu sont stockées localement sur votre appareil et ne sont pas transmises à nos serveurs. Les fournisseurs tiers (Google AdMob) maintiennent leurs propres normes de sécurité. L'application n'autorise pas les connexions à contenu mixte (HTTP) ; seul HTTPS est utilisé.",
+        pt: 'Todos os dados do jogo são armazenados localmente no seu dispositivo e não são transmitidos para nossos servidores. Provedores terceiros (Google AdMob) mantêm seus próprios padrões de segurança. O app não permite conexões de conteúdo misto (HTTP); apenas HTTPS é utilizado.',
+        ru: 'Все игровые данные хранятся локально на вашем устройстве и не передаются на наши серверы. Сторонние поставщики (Google AdMob) соблюдают собственные стандарты безопасности. Приложение не допускает смешанного контента (HTTP); используется только HTTPS.',
+        ja: 'すべてのゲームデータは端末にローカル保存され、サーバーには送信されません。サードパーティプロバイダー（Google AdMob）は独自のセキュリティ基準を維持しています。アプリは混在コンテンツ（HTTP）接続を許可せず、HTTPSのみを使用します。',
+        ko: '모든 게임 데이터는 기기에 로컬 저장되며 서버에 전송되지 않습니다. 제3자 제공업체(Google AdMob)는 자체 보안 기준을 유지합니다. 앱은 혼합 콘텐츠(HTTP) 연결을 허용하지 않으며 HTTPS만 사용합니다.',
+        ar: 'تُخزَّن جميع بيانات اللعبة محليًا على جهازك ولا تُرسَل إلى خوادمنا. يحتفظ مزودو الخدمة من الأطراف الثالثة (Google AdMob) بمعاييرهم الأمنية الخاصة. لا يسمح التطبيق باتصالات المحتوى المختلط (HTTP)؛ يُستخدم HTTPS فقط.'
+      },
 
-<!-- =========================================================
-     ENGLISH
-     ========================================================= -->
-<hr class="divider">
-<p class="section-label">English Version</p>
+      // Children section
+      children_p: {
+        tr: 'Flow Sort, 13 yaşın altındaki çocuklara yönelik değildir ve bu yaş grubundan bilerek veri toplamaz. Uygulamanın çocuğunuz tarafından kullanıldığını düşünüyorsanız lütfen bizimle iletişime geçin.',
+        en: 'Flow Sort is not directed at children under the age of 13 and we do not knowingly collect data from this age group. If you believe your child has used the app, please contact us.',
+        de: 'Flow Sort richtet sich nicht an Kinder unter 13 Jahren und wir erheben wissentlich keine Daten von dieser Altersgruppe. Wenn Sie glauben, dass Ihr Kind die App verwendet hat, kontaktieren Sie uns bitte.',
+        es: 'Flow Sort no está dirigido a menores de 13 años y no recopilamos datos de este grupo de edad de forma intencionada. Si cree que su hijo/a ha utilizado la app, contáctenos.',
+        fr: "Flow Sort n'est pas destiné aux enfants de moins de 13 ans et nous ne collectons pas sciemment de données auprès de ce groupe d'âge. Si vous pensez que votre enfant a utilisé l'application, veuillez nous contacter.",
+        pt: 'O Flow Sort não se destina a crianças menores de 13 anos e não coletamos dados desse grupo etário intencionalmente. Se você acredita que seu filho usou o app, entre em contato.',
+        ru: 'Flow Sort не предназначен для детей до 13 лет, и мы не собираем данные этой возрастной группы сознательно. Если вы считаете, что ваш ребёнок использовал приложение, пожалуйста, свяжитесь с нами.',
+        ja: 'Flow Sortは13歳未満の子ども向けではなく、この年齢層からデータを意図的に収集することはありません。お子様が本アプリを使用したと思われる場合は、お問い合わせください。',
+        ko: 'Flow Sort는 13세 미만 아동을 대상으로 하지 않으며 해당 연령층으로부터 의도적으로 데이터를 수집하지 않습니다. 자녀가 앱을 사용한 것으로 생각되면 문의해 주세요.',
+        ar: 'لا يستهدف Flow Sort الأطفال دون سن 13 عامًا، ولا نجمع بياناتهم عن قصد. إذا كنت تعتقد أن طفلك استخدم التطبيق، يُرجى التواصل معنا.'
+      },
+      children_highlight: {
+        tr: 'Uygulama, Google Play\'de "Herkes İçin" kategorisinde yayımlanmaktadır. Reklam içerikleri <strong>çocuklara yönelik kişiselleştirilmiş reklam</strong> içermez.',
+        en: 'The app is published in the "Everyone" category on Google Play. Ad content does not include <strong>child-directed personalized advertising</strong>.',
+        de: 'Die App ist auf Google Play in der Kategorie „Alle" veröffentlicht. Werbeinhalte enthalten <strong>keine an Kinder gerichtete personalisierte Werbung</strong>.',
+        es: 'La app está publicada en la categoría "Para todos" en Google Play. El contenido publicitario no incluye <strong>publicidad personalizada dirigida a menores</strong>.',
+        fr: 'L\'application est publiée dans la catégorie "Tout public" sur Google Play. Le contenu publicitaire n\'inclut pas de <strong>publicité personnalisée destinée aux enfants</strong>.',
+        pt: 'O aplicativo está publicado na categoria "Classificação Livre" no Google Play. O conteúdo publicitário não inclui <strong>publicidade personalizada direcionada a crianças</strong>.',
+        ru: 'Приложение опубликовано в категории «Для всех» в Google Play. Рекламный контент не включает <strong>персонализированную рекламу, направленную на детей</strong>.',
+        ja: '本アプリはGoogle Playで「全ユーザー対象」カテゴリーで公開されています。広告コンテンツに<strong>子ども向けのパーソナライズ広告</strong>は含まれません。',
+        ko: '앱은 Google Play의 "전체 이용가" 카테고리에 게시되어 있습니다. 광고 콘텐츠에는 <strong>아동 대상 맞춤형 광고</strong>가 포함되지 않습니다.',
+        ar: 'التطبيق منشور في فئة "للجميع" على Google Play. لا يتضمن محتوى الإعلانات <strong>إعلانات مخصصة موجهة للأطفال</strong>.'
+      },
 
-<div id="en">
-<div class="container">
+      // Rights section
+      rights_p: {
+        tr: 'GDPR ve KVKK kapsamında aşağıdaki haklara sahipsiniz:',
+        en: 'Under GDPR and applicable privacy laws, you have the right to:',
+        de: 'Gemäß DSGVO und geltendem Datenschutzrecht haben Sie das Recht:',
+        es: 'Bajo el RGPD y las leyes de privacidad aplicables, usted tiene derecho a:',
+        fr: 'En vertu du RGPD et des lois applicables sur la protection des données, vous avez le droit de :',
+        pt: 'Sob a LGPD e as leis de privacidade aplicáveis, você tem o direito de:',
+        ru: 'В соответствии с GDPR и применимым законодательством о конфиденциальности вы имеете право:',
+        ja: 'GDPRおよび適用されるプライバシー法に基づき、次の権利があります：',
+        ko: 'GDPR 및 적용 가능한 개인정보 보호법에 따라 다음 권리를 갖습니다:',
+        ar: 'بموجب اللائحة العامة لحماية البيانات والقوانين المعمول بها، يحق لك:'
+      },
+      rights_items: {
+        tr: ['Hakkınızdaki verilere erişim ve bunların düzeltilmesini talep etme', 'Kişisel verilerinizin silinmesini talep etme', 'Veri işlemeye itiraz etme', 'Reklam onayınızı geri alma'],
+        en: ['Access and correct data held about you', 'Request deletion of your personal data', 'Object to data processing', 'Withdraw your ad consent'],
+        de: ['Auf Sie betreffende Daten zuzugreifen und deren Berichtigung zu verlangen', 'Die Löschung Ihrer personenbezogenen Daten zu verlangen', 'Der Datenverarbeitung zu widersprechen', 'Ihre Werbeeinwilligung zu widerrufen'],
+        es: ['Acceder y corregir los datos que se conservan sobre usted', 'Solicitar la eliminación de sus datos personales', 'Oponerse al tratamiento de datos', 'Retirar su consentimiento publicitario'],
+        fr: ['Accéder aux données vous concernant et les rectifier', 'Demander la suppression de vos données personnelles', 'S\'opposer au traitement des données', 'Retirer votre consentement publicitaire'],
+        pt: ['Acessar e corrigir dados mantidos sobre você', 'Solicitar a exclusão de seus dados pessoais', 'Opor-se ao processamento de dados', 'Retirar seu consentimento de anúncios'],
+        ru: ['Получать доступ к данным о вас и исправлять их', 'Запрашивать удаление персональных данных', 'Возражать против обработки данных', 'Отзывать согласие на рекламу'],
+        ja: ['自分に関するデータへのアクセスおよび訂正', '個人データの削除要請', 'データ処理への異議申し立て', '広告同意の撤回'],
+        ko: ['보유 데이터 접근 및 수정', '개인 데이터 삭제 요청', '데이터 처리에 대한 이의 제기', '광고 동의 철회'],
+        ar: ['الاطلاع على البيانات المتعلقة بك وتصحيحها', 'طلب حذف بياناتك الشخصية', 'الاعتراض على معالجة البيانات', 'سحب موافقتك على الإعلانات']
+      },
+      rights_contact: {
+        tr: 'Talepleriniz için: ',
+        en: 'To submit a request: ',
+        de: 'Anfragen richten Sie bitte an: ',
+        es: 'Para enviar una solicitud: ',
+        fr: 'Pour soumettre une demande : ',
+        pt: 'Para enviar uma solicitação: ',
+        ru: 'Для отправки запроса: ',
+        ja: 'リクエストの送信先：',
+        ko: '요청 제출처: ',
+        ar: 'لإرسال طلب: '
+      },
+      rights_uninstall: {
+        tr: 'Oyun verilerini silmek için uygulamayı cihazınızdan kaldırmanız yeterlidir.',
+        en: 'To delete all game data, simply uninstall the application from your device.',
+        de: 'Um alle Spieldaten zu löschen, deinstallieren Sie einfach die App von Ihrem Gerät.',
+        es: 'Para eliminar todos los datos del juego, simplemente desinstale la aplicación de su dispositivo.',
+        fr: 'Pour supprimer toutes les données du jeu, il suffit de désinstaller l\'application de votre appareil.',
+        pt: 'Para excluir todos os dados do jogo, basta desinstalar o aplicativo do seu dispositivo.',
+        ru: 'Чтобы удалить все игровые данные, просто удалите приложение с устройства.',
+        ja: 'すべてのゲームデータを削除するには、端末からアプリをアンインストールするだけです。',
+        ko: '모든 게임 데이터를 삭제하려면 기기에서 앱을 제거하기만 하면 됩니다.',
+        ar: 'لحذف جميع بيانات اللعبة، ما عليك سوى إلغاء تثبيت التطبيق من جهازك.'
+      },
 
-  <div class="section">
-    <h2><span class="icon">📋</span> Overview</h2>
-    <p>This Privacy Policy describes how <strong>Hexlume Games</strong> handles personal data in the mobile application <strong>Flow Sort: Color Tube Puzzle</strong> (app ID: <code>com.hexlumegames.flowsort</code>).</p>
-    <p><strong>Last updated:</strong> May 26, 2026</p>
-    <div class="highlight">
-      Flow Sort does not directly collect any personal information. However, in-app advertising and analytics services may involve third-party data processing.
-    </div>
-  </div>
+      // Third-party links
+      links_p: {
+        tr: 'Uygulama, Hexlume Games\'in diğer oyunlarına yönlendiren bağlantılar içerebilir. Bu bağlantılar Google Play Store sayfalarına yönlendirir; Google\'ın gizlilik koşulları geçerlidir.',
+        en: 'The app may contain links to other Hexlume Games titles. These links direct to Google Play Store pages; Google\'s privacy terms apply.',
+        de: 'Die App kann Links zu anderen Titeln von Hexlume Games enthalten. Diese Links führen zu Google Play Store-Seiten; es gelten die Datenschutzbestimmungen von Google.',
+        es: 'La app puede contener enlaces a otros juegos de Hexlume Games. Estos enlaces dirigen a páginas de Google Play Store; se aplican los términos de privacidad de Google.',
+        fr: "L'application peut contenir des liens vers d'autres jeux Hexlume Games. Ces liens redirigent vers des pages du Google Play Store ; les conditions de confidentialité de Google s'appliquent.",
+        pt: 'O aplicativo pode conter links para outros jogos da Hexlume Games. Esses links direcionam para páginas da Google Play Store; os termos de privacidade do Google se aplicam.',
+        ru: 'Приложение может содержать ссылки на другие игры Hexlume Games. Эти ссылки ведут на страницы Google Play Store; применяются условия конфиденциальности Google.',
+        ja: '本アプリには、Hexlume Gamesの他のタイトルへのリンクが含まれる場合があります。これらはGoogle Play Storeのページへのリンクであり、Googleのプライバシー規約が適用されます。',
+        ko: '앱에는 Hexlume Games의 다른 게임으로 연결되는 링크가 포함될 수 있습니다. 이 링크는 Google Play Store 페이지로 이동하며 Google의 개인정보 처리방침이 적용됩니다.',
+        ar: 'قد يحتوي التطبيق على روابط لألعاب Hexlume Games الأخرى. تُوجَّه هذه الروابط إلى صفحات متجر Google Play؛ وتُطبَّق شروط خصوصية Google.'
+      },
 
-  <div class="section">
-    <h2><span class="icon">👤</span> Information We Collect</h2>
-    <p>The app does <strong>not</strong> directly collect or transmit the following to our servers:</p>
-    <ul>
-      <li>Name, email address, or phone number</li>
-      <li>Precise location data</li>
-      <li>Photos, camera, or microphone data</li>
-      <li>Contacts or calendar information</li>
-    </ul>
-    <p>Data stored locally on your device includes only:</p>
-    <ul>
-      <li>Game progress (completed levels, score)</li>
-      <li>App settings (sound, music preferences)</li>
-      <li>Ad consent preference (UMP/GDPR)</li>
-    </ul>
-  </div>
+      // Changes section
+      changes_p: {
+        tr: 'Bu politika zaman zaman güncellenebilir. Önemli değişikliklerde yeni sürümü bu sayfada yayımlayacağız. Uygulamayı kullanmaya devam etmeniz güncellenen politikayı kabul ettiğiniz anlamına gelir.',
+        en: 'This policy may be updated from time to time. We will publish any significant changes on this page. Continued use of the application constitutes acceptance of the updated policy.',
+        de: 'Diese Richtlinie kann von Zeit zu Zeit aktualisiert werden. Wesentliche Änderungen werden auf dieser Seite veröffentlicht. Die weitere Nutzung der Anwendung gilt als Zustimmung zur aktualisierten Richtlinie.',
+        es: 'Esta política puede actualizarse periódicamente. Publicaremos cualquier cambio significativo en esta página. El uso continuado de la aplicación implica la aceptación de la política actualizada.',
+        fr: 'Cette politique peut être mise à jour de temps à autre. Nous publierons tout changement important sur cette page. L\'utilisation continue de l\'application constitue une acceptation de la politique mise à jour.',
+        pt: 'Esta política pode ser atualizada periodicamente. Publicaremos quaisquer alterações significativas nesta página. O uso contínuo do aplicativo constitui aceitação da política atualizada.',
+        ru: 'Настоящая политика может периодически обновляться. Существенные изменения будут опубликованы на этой странице. Продолжение использования приложения означает согласие с обновлённой политикой.',
+        ja: '本ポリシーは随時更新されることがあります。重要な変更はこのページに公開します。アプリの継続使用は更新されたポリシーへの同意とみなします。',
+        ko: '이 정책은 수시로 업데이트될 수 있습니다. 중요한 변경 사항은 이 페이지에 게시됩니다. 앱을 계속 사용하면 업데이트된 정책에 동의하는 것으로 간주됩니다.',
+        ar: 'قد تُحدَّث هذه السياسة من وقت لآخر. سننشر أي تغييرات جوهرية على هذه الصفحة. يُعدّ الاستمرار في استخدام التطبيق موافقةً على السياسة المحدَّثة.'
+      },
 
-  <div class="section">
-    <h2><span class="icon">📣</span> Advertising – Google AdMob</h2>
-    <p>The app uses <strong>Google AdMob</strong> (Google LLC) to serve advertisements. AdMob may collect the following to measure ad performance, deliver personalized ads, and prevent fraud:</p>
-    <ul>
-      <li>Advertising identifier (GAID / Android Advertising ID)</li>
-      <li>IP address and approximate location</li>
-      <li>App usage statistics and interaction data</li>
-      <li>Device information (model, OS version)</li>
-    </ul>
-    <p>Google Privacy Policy: <a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
-    <p>Manage your ad preferences: <a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a></p>
-  </div>
+      // Contact
+      contact_label: {
+        tr: 'E-posta:', en: 'Email:', de: 'E-Mail:', es: 'Correo electrónico:', fr: 'E-mail:',
+        pt: 'E-mail:', ru: 'Электронная почта:', ja: 'メール：', ko: '이메일:', ar: 'البريد الإلكتروني:'
+      }
+    };
 
-  <div class="section">
-    <h2><span class="icon">🌍</span> GDPR &amp; User Consent</h2>
-    <p>Users located in the European Economic Area (EEA), United Kingdom, or Switzerland will be presented with a consent prompt for ad personalization via Google's <strong>User Messaging Platform (UMP)</strong> upon first launch.</p>
-    <ul>
-      <li>You may withdraw your consent at any time.</li>
-      <li>If you decline personalization, contextual ads may still be shown.</li>
-      <li>Your consent preference is stored locally on your device only.</li>
-    </ul>
-  </div>
+    // ── Render ─────────────────────────────────────────────────────────────────
+    let currentLang = 'en';
 
-  <div class="section">
-    <h2><span class="icon">🔒</span> Data Security</h2>
-    <p>All game data is stored locally on your device and is not transmitted to our servers. Third-party providers (Google AdMob) maintain their own security standards. The app does not allow mixed content (HTTP) connections; only HTTPS is used.</p>
-  </div>
+    function t(key) {
+      const entry = T[key];
+      if (!entry) return key;
+      return entry[currentLang] || entry['en'] || key;
+    }
 
-  <div class="section">
-    <h2><span class="icon">👶</span> Children's Privacy</h2>
-    <p>Flow Sort is not directed at children under the age of 13 and we do not knowingly collect data from this age group. If you believe your child has used the app, please contact us.</p>
-    <div class="highlight">
-      The app is published in the "Everyone" category on Google Play. Ad content does not include <strong>child-directed personalized advertising</strong>.
-    </div>
-  </div>
+    function buildLangBar() {
+      const bar = document.getElementById('lang-bar');
+      bar.innerHTML = '';
+      LANGS.forEach(code => {
+        const btn = document.createElement('button');
+        btn.className = 'lang-btn' + (code === currentLang ? ' active' : '');
+        btn.textContent = LANG_FLAGS[code] + ' ' + LANG_NAMES[code];
+        btn.onclick = () => setLang(code);
+        bar.appendChild(btn);
+      });
+    }
 
-  <div class="section">
-    <h2><span class="icon">📜</span> Your Rights</h2>
-    <p>Under GDPR and applicable privacy laws, you have the right to:</p>
-    <ul>
-      <li>Access and correct data held about you</li>
-      <li>Request deletion of your personal data</li>
-      <li>Object to data processing</li>
-      <li>Withdraw your ad consent</li>
-    </ul>
-    <p>To submit a request: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
-    <p>To delete all game data, simply uninstall the application from your device.</p>
-  </div>
+    function ul(items) {
+      return '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
+    }
 
-  <div class="section">
-    <h2><span class="icon">🔗</span> Third-Party Links</h2>
-    <p>The app may contain links to other Hexlume Games titles. These links direct to Google Play Store pages; Google's privacy terms apply.</p>
-  </div>
+    function section(icon, titleKey, bodyHTML) {
+      return `
+    <div class="section">
+      <h2><span class="icon">${icon}</span> ${t(titleKey)}</h2>
+      ${bodyHTML}
+    </div>`;
+    }
 
-  <div class="section">
-    <h2><span class="icon">✏️</span> Policy Changes</h2>
-    <p>This policy may be updated from time to time. We will publish any significant changes on this page. Continued use of the application constitutes acceptance of the updated policy.</p>
-  </div>
+    function buildContent() {
+      const lang = currentLang;
+      document.getElementById('h-title').textContent = t('page_title');
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', RTL.includes(lang) ? 'rtl' : 'ltr');
+      document.title = `${t('page_title')} – Flow Sort: Color Tube Puzzle | Hexlume Games`;
 
-  <div class="section">
-    <h2><span class="icon">📬</span> Contact</h2>
-    <p><strong>Hexlume Games</strong><br>
-    Email: <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
-  </div>
+      const adsLinks = T.ads_links[lang] || T.ads_links['en'];
 
-</div>
-</div>
+      document.getElementById('content').innerHTML = [
 
+        section('📋', 's_overview_title', `
+      <p>${t('overview_p1')}</p>
+      <p>${t('last_updated')}</p>
+      <div class="highlight">${t('overview_highlight')}</div>
+    `),
+
+        section('👤', 's_collect_title', `
+      <p>${t('collect_no_title')}</p>
+      ${ul(T.collect_no_items[lang] || T.collect_no_items['en'])}
+      <p style="margin-top:14px">${t('collect_local_title')}</p>
+      ${ul(T.collect_local_items[lang] || T.collect_local_items['en'])}
+    `),
+
+        section('📣', 's_ads_title', `
+      <p>${t('ads_p1')}</p>
+      ${ul(T.ads_items[lang] || T.ads_items['en'])}
+      <p style="margin-top:14px">${adsLinks[0]}<a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+      <p>${adsLinks[1]}<a href="https://adssettings.google.com" target="_blank">adssettings.google.com</a></p>
+    `),
+
+        section('🌍', 's_gdpr_title', `
+      <p>${t('gdpr_p1')}</p>
+      ${ul(T.gdpr_items[lang] || T.gdpr_items['en'])}
+    `),
+
+        section('🔒', 's_security_title', `
+      <p>${t('security_p')}</p>
+    `),
+
+        section('👶', 's_children_title', `
+      <p>${t('children_p')}</p>
+      <div class="highlight">${t('children_highlight')}</div>
+    `),
+
+        section('📜', 's_rights_title', `
+      <p>${t('rights_p')}</p>
+      ${ul(T.rights_items[lang] || T.rights_items['en'])}
+      <p style="margin-top:14px">${t('rights_contact')}<a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+      <p>${t('rights_uninstall')}</p>
+    `),
+
+        section('🔗', 's_links_title', `
+      <p>${t('links_p')}</p>
+    `),
+
+        section('✏️', 's_changes_title', `
+      <p>${t('changes_p')}</p>
+    `),
+
+        section('📬', 's_contact_title', `
+      <p><strong>Hexlume Games</strong><br>
+      ${t('contact_label')} <a href="mailto:hexlume.games@gmail.com">hexlume.games@gmail.com</a></p>
+    `)
+
+      ].join('');
+    }
+
+    function setLang(lang) {
+      if (!LANGS.includes(lang)) return;
+      currentLang = lang;
+      buildLangBar();
+      buildContent();
+      // Scroll lang button into view on mobile
+      const activeBtn = document.querySelector('.lang-btn.active');
+      if (activeBtn) activeBtn.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+    }
+
+    // ── Auto-detect language ───────────────────────────────────────────────────
+    (function init() {
+      // Check URL hash first (e.g. #tr)
+      const hash = location.hash.replace('#', '');
+      if (LANGS.includes(hash)) { currentLang = hash; }
+      else {
+        // Try browser language
+        const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase().split('-')[0];
+        if (LANGS.includes(nav)) currentLang = nav;
+        else currentLang = 'en';
+      }
+      buildLangBar();
+      buildContent();
+    })();
+  </script>
 </body>
+
 </html>
